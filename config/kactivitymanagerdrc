@@ -1,0 +1,13 @@
+[Plugins]
+org.kde.ActivityManager.ResourceScoringEnabled=true
+org.kde.ActivityManager.VirtualDesktopSwitchEnabled=false
+
+[activities]
+07a9f568-303d-4a85-8a87-7c77986a92e3=Gaming
+341e29e6-4483-4f5d-b287-f76dadd8360d=Default
+4b607465-737f-4fb5-af4e-5b55465ef9f2=Personal
+
+[main]
+currentActivity=341e29e6-4483-4f5d-b287-f76dadd8360d
+runningActivities=341e29e6-4483-4f5d-b287-f76dadd8360d
+stoppedActivities=07a9f568-303d-4a85-8a87-7c77986a92e3,4b607465-737f-4fb5-af4e-5b55465ef9f2

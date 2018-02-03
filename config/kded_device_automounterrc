@@ -1,0 +1,11 @@
+[Devices][/org/freedesktop/UDisks2/block_devices/mmcblk0p7]
+EverMounted=true
+Icon=media-flash-sd-mmc
+LastNameSeen=ROOT-C
+LastSeenMounted=true
+
+[Devices][/org/freedesktop/UDisks2/block_devices/sda1]
+EverMounted=true
+Icon=drive-removable-media-usb
+LastNameSeen=UNTITLED
+LastSeenMounted=true

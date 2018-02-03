@@ -1,0 +1,10 @@
+[DBUS]
+Address="unix:abstract=/tmp/dbus-VKI5rc7nGg,guid=ae8f4399eaaa2f7b4a5d18e95a72a857"
+
+[Data]
+Method=UnixPath
+UnixPath=/tmp/akonadi-chrx.wo038E/akonadiserver-cmd.socket
+
+[Notifications]
+Method=UnixPath
+UnixPath=/tmp/akonadi-chrx.wo038E/akonadiserver-ntf.socket

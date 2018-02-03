@@ -1,0 +1,10 @@
+[Common]
+ShadowStrength=89
+
+[Windeco Exception 0]
+BorderSize=2
+Enabled=true
+ExceptionPattern=.*
+ExceptionType=0
+HideTitleBar=true
+Mask=16

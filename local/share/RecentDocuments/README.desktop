@@ -1,0 +1,6 @@
+[Desktop Entry]
+Icon=text-x-readme
+Name=README
+Type=Link
+URL[$e]=file:$HOME/Downloads/yakuake-3.0.4/README
+X-KDE-LastOpenedWith=org.kde.kate

@@ -1,0 +1,14 @@
+[DownloadDialog Settings]
+Height 1600=522
+Width 2400=700
+
+[KFileDialog Settings]
+Recent Files[$e]=file:$HOME/Downloads/174328-KArc-Transparent.tar.gz,file:$HOME/Downloads/174328-KArc-Transparent.tar.gz
+Recent URLs[$e]=file:$HOME/Downloads/
+
+[MainWindow]
+Height 1600=694
+MenuBar=Disabled
+State=AAAA/wAAAAD9AAAAAAAAA2MAAAKQAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAWAG0AYQBpAG4AVABvAG8AbABCAGEAcgEAAAAA/////wAAAAAAAAAA
+ToolBarsMovable=Disabled
+Width 2400=867

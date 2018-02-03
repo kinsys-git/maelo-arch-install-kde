@@ -1,0 +1,23 @@
+[
+    {
+        "enabled": true,
+        "id": "8b275ab83abd61a8140049669ae35768",
+        "metadata": {
+            "fullname": "xrandr-LQ123P1JX31",
+            "name": "eDP1"
+        },
+        "mode": {
+            "refresh": 59.982059478759766,
+            "size": {
+                "height": 1600,
+                "width": 2400
+            }
+        },
+        "pos": {
+            "x": 0,
+            "y": 0
+        },
+        "primary": true,
+        "rotation": 1
+    }
+]

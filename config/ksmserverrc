@@ -1,0 +1,55 @@
+[General]
+screenCount=1
+
+[LegacySession: saved at previous logout]
+count=0
+
+[Session: saved at previous logout]
+clientId1=1063687278000151746333100000010570005
+clientId2=1063687278000151746333100000010570002
+clientId3=1063687278000151746333200000010570008
+clientId4=1063687278000151746333200000010570009
+clientId5=1063687278000151746337900000010570011
+clientId6=1063687278000151746340500000010570012
+count=6
+discardCommand1[$e]=rm,$HOME/.config/session/kwin_1063687278000151746333100000010570005_1517463586_794947
+discardCommand5[$e]=rm,$HOME/.config/session/konsole_1063687278000151746337900000010570011_1517463586_734989
+program1=kwin_x11
+program2=/usr/lib/x86_64-linux-gnu/libexec/kdeconnectd
+program3=/usr/lib/x86_64-linux-gnu/libexec/org_kde_powerdevil
+program4=pulseaudio
+program5=/usr/bin/konsole
+program6=firefox
+restartCommand1=kwin_x11,-session,1063687278000151746333100000010570005_1517463586_794947
+restartCommand2=/usr/lib/x86_64-linux-gnu/libexec/kdeconnectd,-session,1063687278000151746333100000010570002_1517463586_731863
+restartCommand3=/usr/lib/x86_64-linux-gnu/libexec/org_kde_powerdevil,-session,1063687278000151746333200000010570008_1517463586_734076
+restartCommand4=
+restartCommand5=/usr/bin/konsole,-session,1063687278000151746337900000010570011_1517463586_734989
+restartCommand6=/usr/bin/firefox,--sm-client-id,1063687278000151746340500000010570012
+restartStyleHint1=0
+restartStyleHint2=0
+restartStyleHint3=0
+restartStyleHint4=0
+restartStyleHint5=0
+restartStyleHint6=0
+userId1=chrx
+userId2=chrx
+userId3=chrx
+userId4=chrx
+userId5=chrx
+userId6=chrx
+wasWm1=true
+wasWm2=false
+wasWm3=false
+wasWm4=false
+wasWm5=false
+wasWm6=false
+
+[SubSession: 07a9f568-303d-4a85-8a87-7c77986a92e3]
+count=0
+
+[SubSession: 341e29e6-4483-4f5d-b287-f76dadd8360d]
+count=0
+
+[SubSession: 4b607465-737f-4fb5-af4e-5b55465ef9f2]
+count=0
