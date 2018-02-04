@@ -2,7 +2,7 @@
 
 dir=~/maelo-dotfiles                    # dotfiles directory
 olddir=~/maelo-dotfiles_old             # old dotfiles backup directory
-files="config local vim bashrc gtkrc-2.0 profile xsessionrc"
+files="config local vim bashrc gtkrc-2.0 profile xsessionrc kde4"
 
 echo "Creating $olddir for backup of any existing dotfiles in ~"
 mkdir -p $olddir
