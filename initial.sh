@@ -113,13 +113,13 @@ chromebook() {
 		then
 		rm -rf /boot/*
 		cd /boot
-		wget https://raw.githubusercontent.com/maelodic/maelo-dotfiles/chromebook/boot.tar.gz
+		wget https://raw.githubusercontent.com/maelodic/maelo-dotfiles/master/chromebook/boot.tar.gz
 		tar -xvzf boot.tar.gz
 		rm -f boot.tar.gz
 		find /boot -exec chown root.root {} \;
 		grub-mkconfig -o /boot/grub/grub.cfg
 		cd /etc/modprobe.d/
-		wget https://raw.githubusercontent.com/maelodic/maelo-dotfiles/chromebook/blacklist.tar.gz
+		wget https://raw.githubusercontent.com/maelodic/maelo-dotfiles/master/chromebook/blacklist.tar.gz
 		tar -xvzf blacklist.tar.gz
 		chown root.root *
 		rm -f blacklist.tar.gz
