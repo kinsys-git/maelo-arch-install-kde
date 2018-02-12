@@ -51,7 +51,7 @@ usersetup() {
 		read anot
 		if [ "$anot" == Y -o "$anot" == y -o "$anot" == yes -o "$anot" == YES ]
 			then
-			echo "$namebro ALL=(ALL) NOPASSWD: /usr/bin/reflector" >> /etc/sudoers
+			printf "$s\n $namebro ALL=(ALL) NOPASSWD: /usr/bin/reflector" >> /etc/sudoers
 		fi
 }
 
