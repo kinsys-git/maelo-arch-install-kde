@@ -18,6 +18,7 @@ green=$(tput setaf 2)
 yellow=$(tput setaf 3)
 
 mirrors() {
+		printf "$s\n Server = https://mirrors.kernel.org/archlinux/$repo/os/$arch" >> /etc/pacman.d/mirrorlist
 		pacman -Syy reflector --noconfirm
 		echo "Updating mirrors"
 		reflector --protocol https --sort rate --save /etc/pacman.d/mirrorlist --verbose

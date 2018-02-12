@@ -69,7 +69,7 @@ bobthebuilder() {
 		su "$namebro" -c "mkdir /home/$namebro/build-dir"
 		su "$namebro" -c "cd /home/$namebro/build-dir && wget https://aur.archlinux.org/cgit/aur.git/snapshot/cower.tar.gz && tar xzvf cower.tar.gz"
 		su "$namebro" -c "cd /home/$namebro/build-dir/cower && makepkg -s --skippgpcheck"
-		pacman -U /home/"$namebro"/build-dir/cower/*.xz --noconfirms
+		pacman -U /home/"$namebro"/build-dir/cower/*.xz --noconfirm
 		su "$namebro" -c "cd /home/$namebro/build-dir && wget https://aur.archlinux.org/cgit/aur.git/snapshot/pacaur.tar.gz && tar xzvf pacaur.tar.gz"
 		su "$namebro" -c "cd /home/$namebro/build-dir/pacaur && makepkg -s"
 		pacman -U /home/"$namebro"/build-dir/pacaur/*.xz --noconfirm
@@ -91,9 +91,10 @@ setupuser() {
 }
 
 installsoftware() {
-	pacman -Syy reflector packagekit-qt5 python-pyqt5 qt5-declarative git python-dbus python-yaml wmctrl xdotool python-gobject dialog plasma-meta kde-applications-meta sddm xorg-server xorg-font-util xorg-xinit xterm ttf-dejavu xf86-video-vesa xf86-input-synaptics firefox vim plasma-nm --noconfirm --needed
-	pacaur -Syy plasma5-applets-active-window-control latte-dock --noconfirm --needed
+	pacman -Syy reflector packagekit-qt5 python-pyqt5 qt5-declarative git python-dbus python-yaml wmctrl xdotool python-gobject dialog plasma-meta kde-applications-meta sddm xorg-server xorg-font-util xorg-xinit xterm ttf-dejavu xf86-video-vesa xf86-input-synaptics firefox vim plasma-nm latte-dock --noconfirm --needed
+	pacaur -Syy plasma5-applets-active-window-control qt5-graphicaleffects --noconfirm --needed
 	systemctl enable sddm.service
+	systemctl enable NetworkManager
 	chmod +x ~/maelo-dotfiles/*.sh
 	su "$namebro" -c "mkdir ~/tmp"
 	cd ~/tmp
@@ -113,21 +114,15 @@ chromebook() {
 		then
 		rm -rf /boot/*
 		cd /boot
-		wget https://raw.githubusercontent.com/maelodic/maelo-dotfiles/master/chromebook/boot.tar.gz
-		tar -xvzf boot.tar.gz
-		rm -f boot.tar.gz
-		find /boot -exec chown root.root {} \;
+		pacaur -Syy galliumos-linux --noconfirm --needed
 		grub-mkconfig -o /boot/grub/grub.cfg
 		cd /etc/modprobe.d/
-		wget https://raw.githubusercontent.com/maelodic/maelo-dotfiles/master/chromebook/blacklist.tar.gz
-		tar -xvzf blacklist.tar.gz
-		chown root.root *
-		rm -f blacklist.tar.gz
-		echo "sudo modprobe atmel_mxt_ts" >> /home/$namebro/maelo-dotfiles/startup.sh
-		echo "$namebro ALL=(ALL) NOPASSWD: /usr/bin/modprobe atmel_mxt_ts, /usr/bin/alsaucm*, /usr/bin/reflector" >> /etc/sudoers
+		printf "$s\n blacklist atmel_mxt_ts" >> /home/$namebro/maelo-dotfiles/startup.sh
+		printf "$s\n $namebro ALL=(ALL) NOPASSWD: /usr/bin/modprobe atmel_mxt_ts, /usr/bin/alsaucm*, /usr/bin/reflector" >> /etc/sudoers
 		
 	else
 		printf "\033[1m\n  Setup Complete"
+	fi
 }
 
 main() {
@@ -139,3 +134,4 @@ main() {
 	chromebook
 }
 
+main

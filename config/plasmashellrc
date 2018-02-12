@@ -176,7 +176,7 @@ minLength=743
 thickness=46
 
 [ScreenConnectors]
-0=eDP1
+0=eDP-1
 
 [Updates]
 performed=/usr/share/plasma/shells/org.kde.plasma.desktop/contents/updates/obsolete_kickoffrc.js
