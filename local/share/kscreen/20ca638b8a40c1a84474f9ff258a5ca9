@@ -18,6 +18,7 @@
             "y": 0
         },
         "primary": true,
-        "rotation": 1
+        "rotation": 1,
+        "scale": 1
     }
 ]

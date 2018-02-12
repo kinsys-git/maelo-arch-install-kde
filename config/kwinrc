@@ -8,14 +8,39 @@ Number=1
 TabBox=false
 TabBoxAlternative=false
 
+[Effect-Cube]
+BorderActivate=9
+BorderActivateCylinder=9
+BorderActivateSphere=9
+TouchBorderActivate=9
+TouchBorderActivateCylinder=9
+TouchBorderActivateSphere=9
+
+[Effect-DesktopGrid]
+BorderActivate=9
+TouchBorderActivate=9
+
 [Effect-FlipSwitch]
 TabBox=false
 TabBoxAlternative=false
 
 [Effect-PresentWindows]
 BorderActivate=9
-BorderActivateAll=1
+BorderActivateAll=9
 BorderActivateClass=9
+TouchBorderActivate=7
+TouchBorderActivateAll=9
+TouchBorderActivateClass=9
+
+[ElectricBorders]
+Bottom=None
+BottomLeft=None
+BottomRight=None
+Left=None
+Right=None
+Top=None
+TopLeft=None
+TopRight=ShowDesktop
 
 [MouseBindings]
 CommandActiveTitlebar1=Raise
@@ -42,6 +67,8 @@ windowgeometryEnabled=false
 [TabBox]
 ActivitiesMode=1
 ApplicationsMode=0
+BorderActivate=9
+BorderAlternativeActivate=9
 DesktopLayout=org.kde.breeze.desktop
 DesktopListLayout=org.kde.breeze.desktop
 DesktopMode=1
@@ -52,6 +79,8 @@ MultiScreenMode=0
 ShowDesktopMode=0
 ShowTabBox=true
 SwitchingMode=0
+TouchBorderActivate=9
+TouchBorderAlternativeActivate=9
 
 [TabBoxAlternative]
 ActivitiesMode=1
@@ -65,6 +94,12 @@ ShowDesktopMode=0
 ShowTabBox=true
 SwitchingMode=0
 
+[TouchEdges]
+Bottom=None
+Left=None
+Right=None
+Top=None
+
 [Windows]
 ActiveMouseScreen=true
 AutoRaise=false
@@ -76,7 +111,13 @@ BorderlessMaximizedWindows=true
 CenterSnapZone=0
 ClickRaise=true
 DelayFocusInterval=100
-FocusPolicy=FocusFollowsMouse
+ElectricBorderCooldown=350
+ElectricBorderCornerRatio=0.25
+ElectricBorderDelay=150
+ElectricBorderMaximize=true
+ElectricBorderTiling=true
+ElectricBorders=0
+FocusPolicy=ClickToFocus
 FocusStealingPreventionLevel=1
 GeometryTip=false
 HideUtilityWindowsForInactive=true
@@ -95,7 +136,7 @@ WindowSnapZone=10
 
 [org.kde.kdecoration2]
 BorderSize=Tiny
-ButtonsOnLeft=MS
+ButtonsOnLeft=MSN
 ButtonsOnRight=HIAX
 CloseOnDoubleClickOnMenu=false
 library=org.kde.breeze

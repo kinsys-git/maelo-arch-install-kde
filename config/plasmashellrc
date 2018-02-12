@@ -12,6 +12,9 @@ AppletOrder=43;44;45;46;48
 extraItems=org.kde.plasma.networkmanagement,org.kde.kdeconnect,org.kde.discovernotifier,org.kde.plasma.devicenotifier,org.kde.plasma.battery,org.kde.plasma.clipboard,org.kde.plasma.bluetooth,org.kde.plasma.printmanager,org.kde.plasma.notifications,org.kde.plasma.volume,org.kde.plasma.mediacontroller
 knownItems=org.kde.plasma.networkmanagement,org.kde.kdeconnect,org.kde.discovernotifier,org.kde.plasma.devicenotifier,org.kde.plasma.battery,org.kde.plasma.clipboard,org.kde.plasma.bluetooth,org.kde.plasma.printmanager,org.kde.plasma.notifications,org.kde.plasma.volume,org.kde.plasma.mediacontroller
 
+[Containments][49][General]
+AppletOrder=51
+
 [Containments][54][General]
 AppletOrder=56;55
 
@@ -19,9 +22,20 @@ AppletOrder=56;55
 extraItems=org.kde.plasma.networkmanagement,org.kde.kdeconnect,org.kde.discovernotifier,org.kde.plasma.devicenotifier,org.kde.plasma.battery,org.kde.plasma.clipboard,org.kde.plasma.bluetooth,org.kde.plasma.printmanager,org.kde.plasma.notifications,org.kde.plasma.volume,org.kde.plasma.mediacontroller
 knownItems=org.kde.plasma.networkmanagement,org.kde.kdeconnect,org.kde.discovernotifier,org.kde.plasma.devicenotifier,org.kde.plasma.battery,org.kde.plasma.clipboard,org.kde.plasma.bluetooth,org.kde.plasma.printmanager,org.kde.plasma.notifications,org.kde.plasma.volume,org.kde.plasma.mediacontroller
 
+[Containments][85][General]
+AppletOrder=108;105;89
+
+[Containments][90][General]
+extraItems=org.kde.plasma.networkmanagement,org.kde.kdeconnect,org.kde.discovernotifier,org.kde.plasma.devicenotifier,org.kde.plasma.battery,org.kde.plasma.clipboard,org.kde.plasma.bluetooth,org.kde.plasma.printmanager,org.kde.plasma.notifications,org.kde.plasma.volume,org.kde.plasma.mediacontroller,org.kde.plasma.vault,org.kde.ktp-contactlist
+knownItems=org.kde.plasma.networkmanagement,org.kde.kdeconnect,org.kde.discovernotifier,org.kde.plasma.devicenotifier,org.kde.plasma.battery,org.kde.plasma.clipboard,org.kde.plasma.bluetooth,org.kde.plasma.printmanager,org.kde.plasma.notifications,org.kde.plasma.volume,org.kde.plasma.mediacontroller,org.kde.plasma.vault,org.kde.ktp-contactlist
+
+[DownloadDialog Settings]
+Height 1600=522
+Width 2400=700
+
 [PlasmaRunnerManager]
-LaunchCounts=1 services_kcm_kdeconnect.desktop,1 services_google-chrome.desktop
-pluginWhiteList=services,desktopsessions,PowerDevil,bookmarks,baloosearch,locations
+LaunchCounts=1 services_org.kde.konsole.desktop,1 services_kwinrules.desktop,1 services_kcm_kdeconnect.desktop,1 services_google-chrome.desktop
+pluginWhiteList=services,desktopsessions,PowerDevil,shell,bookmarks,baloosearch,locations
 
 [PlasmaViews][Panel 114]
 alignment=2
@@ -33,6 +47,9 @@ minLength=18000
 offset=0
 panelVisibility=0
 thickness=36
+
+[PlasmaViews][Panel 117][Horizontal2400]
+thickness=27
 
 [PlasmaViews][Panel 120]
 alignment=132

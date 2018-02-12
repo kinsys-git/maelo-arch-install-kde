@@ -92,6 +92,7 @@ setupuser() {
 
 installsoftware() {
 	pacman -Syy reflector packagekit-qt5 python-pyqt5 qt5-declarative git python-dbus python-yaml wmctrl xdotool python-gobject dialog plasma-meta kde-applications-meta sddm xorg-server xorg-font-util xorg-xinit xterm ttf-dejavu xf86-video-vesa xf86-input-synaptics firefox vim plasma-nm --noconfirm --needed
+	pacaur -Syy plasma5-applets-active-window-control latte-dock --noconfirm --needed
 	systemctl enable sddm.service
 	chmod +x ~/maelo-dotfiles/*.sh
 	su "$namebro" -c "mkdir ~/tmp"

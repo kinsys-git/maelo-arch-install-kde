@@ -1,2 +1,6 @@
+[KFileDialog Settings]
+Recent Files[$e]=arch-setup.sh,file:$HOME/maelo-dotfiles/arch-setup.sh
+Recent URLs[$e]=file:$HOME/maelo-dotfiles/
+
 [PlasmaRunnerManager]
 LaunchCounts=

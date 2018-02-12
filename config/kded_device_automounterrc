@@ -1,8 +1,25 @@
+[Devices][/org/freedesktop/UDisks2/block_devices/mmcblk0p1]
+EverMounted=true
+Icon=media-flash-sd-mmc
+LastNameSeen=bootfs
+LastSeenMounted=true
+
+[Devices][/org/freedesktop/UDisks2/block_devices/mmcblk0p2]
+EverMounted=true
+Icon=media-flash-sd-mmc
+LastNameSeen=rootfs
+LastSeenMounted=true
+
 [Devices][/org/freedesktop/UDisks2/block_devices/mmcblk0p7]
 EverMounted=true
 Icon=media-flash-sd-mmc
 LastNameSeen=ROOT-C
 LastSeenMounted=true
+
+[Devices][/org/freedesktop/UDisks2/block_devices/mmcblk1p1]
+Icon=media-flash-sd-mmc
+LastNameSeen=ARCH_201802
+LastSeenMounted=false
 
 [Devices][/org/freedesktop/UDisks2/block_devices/sda1]
 EverMounted=true

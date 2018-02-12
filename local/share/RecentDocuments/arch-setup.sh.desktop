@@ -1,0 +1,6 @@
+[Desktop Entry]
+Icon=application-x-shellscript
+Name=arch-setup.sh
+Type=Link
+URL[$e]=file:$HOME/maelo-dotfiles/arch-setup.sh
+X-KDE-LastOpenedWith=kcmshell5

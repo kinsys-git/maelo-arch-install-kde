@@ -1,0 +1,1 @@
+/home/bradyn/maelo-dotfiles/startup.sh
