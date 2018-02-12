@@ -51,7 +51,7 @@ usersetup() {
 		read anot
 		if [ "$anot" == Y -o "$anot" == y -o "$anot" == yes -o "$anot" == YES ]
 			then
-			printf "$s\n $namebro ALL=(ALL) NOPASSWD: /usr/bin/reflector" >> /etc/sudoers
+			printf "$namebro ALL=(ALL) ALL NOPASSWD: /usr/bin/reflector" >> /etc/sudoers
 		fi
 }
 
@@ -92,37 +92,10 @@ setupuser() {
 
 installsoftware() {
 	pacman -Syy reflector packagekit-qt5 python-pyqt5 qt5-declarative git python-dbus python-yaml wmctrl xdotool python-gobject dialog plasma-meta kde-applications-meta sddm xorg-server xorg-font-util xorg-xinit xterm ttf-dejavu xf86-video-vesa xf86-input-synaptics firefox vim plasma-nm latte-dock --noconfirm --needed
-	pacaur -Syy plasma5-applets-active-window-control qt5-graphicaleffects --noconfirm --needed
+	su "$namebro" -c "pacaur -Syy plasma5-applets-active-window-control qt5-graphicaleffects --noconfirm --needed"
 	systemctl enable sddm.service
 	systemctl enable NetworkManager
-	chmod +x ~/maelo-dotfiles/*.sh
-	su "$namebro" -c "mkdir ~/tmp"
-	cd ~/tmp
-	su "$namebro" -c "git clone https://github.com/bharadwaj-raju/qOverview"
-	cd qOverview
-	chmod +x install.sh
-	sh install.sh
-	su "$namebro" -c "qoverview-config-server >/dev/null 2>&1 & disown"
-	cd ..
-	rm -rf qOverview
-}
-
-chromebook() {
-	printf "Samsung Chromebook Pro? [y/N]: "
-	read question
-	if [ "$question" == Y -o "$question" == y ]
-		then
-		rm -rf /boot/*
-		cd /boot
-		pacaur -Syy galliumos-linux --noconfirm --needed
-		grub-mkconfig -o /boot/grub/grub.cfg
-		cd /etc/modprobe.d/
-		printf "$s\n blacklist atmel_mxt_ts" >> /home/$namebro/maelo-dotfiles/startup.sh
-		printf "$s\n $namebro ALL=(ALL) NOPASSWD: /usr/bin/modprobe atmel_mxt_ts, /usr/bin/alsaucm*, /usr/bin/reflector" >> /etc/sudoers
-		
-	else
-		printf "\033[1m\n  Setup Complete"
-	fi
+	chmod +x /home/$namebro/maelo-dotfiles/*.sh
 }
 
 main() {
@@ -131,7 +104,6 @@ main() {
 	bobthebuilder
 	setupuser
 	installsoftware
-	chromebook
 }
 
 main
