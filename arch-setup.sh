@@ -278,7 +278,7 @@ postsetup() {
 	cd /mnt/root
 	wget https://raw.githubusercontent.com/maelodic/maelo-dotfiles/master/initial.sh
 	chmod +x initial.sh
-	arch-chroot /mnt /bin/bash initial.sh
+	arch-chroot /mnt /bin/bash /root/initial.sh
 }
 
 main() {
