@@ -24,7 +24,7 @@ intelinside() {
 		read amdstuff
 		if [ "$amdstuff" == Y -o "$amdstuff" == y ]
 			then
-			pacman -S ati-dri xf86-video-ati --noconfirm --needed
+			pacman -Syy ati-dri xf86-video-ati --noconfirm --needed
 		fi
 	fi
 }
@@ -93,7 +93,7 @@ setupuser() {
 
 rootpasswd() {
 	clear
-	printf "Set ROOT Password: "
+	printf "${white}Set ${red}ROOT Password: \n"
 	passwd
 }
 
