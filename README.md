@@ -8,7 +8,7 @@ This script puts many dotfiles into a "dotfiles" directory in your home folder, 
 
 To install, run this command after connecting to the internet on the arch install disk:
 
-'wget https://raw.githubusercontent.com/maelodic/maelo-arch-install-kde/master/arch-setup.sh ; chmod +x arch-setup.sh ; ./arch-setup.sh'
+' wget https://raw.githubusercontent.com/maelodic/maelo-arch-install-kde/master/arch-setup.sh ; chmod +x arch-setup.sh ; ./arch-setup.sh '
 
 ... And that's it. Follow the prompts from there.
 
