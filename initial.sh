@@ -109,6 +109,7 @@ main() {
 	usersetup
 	bobthebuilder
 	setupuser
+	rootpasswd
 	installsoftware
 }
 
