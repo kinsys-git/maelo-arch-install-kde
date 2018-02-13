@@ -238,7 +238,7 @@ pkgmntchroot() {
 	   sed -i 's/block filesystems/block keymap encrypt filesystems/g' /mnt/etc/mkinitcpio.conf
 	fi
 	genfstab -p -U /mnt >> /mnt/etc/fstab
-	wget https://raw.githubusercontent.com/maelodic/maelo-dotfiles/master/chrootnset.sh
+	wget https://raw.githubusercontent.com/maelodic/maelo-arch-install-kde/master/chrootnset.sh
 	chmod +x chrootnset.sh
 	cp chrootnset.sh config.sh /mnt
 	arch-chroot /mnt /bin/bash chrootnset.sh
@@ -276,7 +276,7 @@ candy() {
 
 postsetup() {
 	cd /mnt/root
-	wget https://raw.githubusercontent.com/maelodic/maelo-dotfiles/master/initial.sh
+	wget https://raw.githubusercontent.com/maelodic/maelo-arch-install-kde/master/initial.sh
 	chmod +x initial.sh
 	arch-chroot /mnt /bin/bash /root/initial.sh
 }

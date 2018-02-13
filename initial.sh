@@ -84,8 +84,8 @@ bobthebuilder() {
 
 setupuser() {
 	cd /home/$namebro
-	su "$namebro" -c "git clone https://github.com/maelodic/maelo-dotfiles"
-	cd maelo-dotfiles
+	su "$namebro" -c "git clone https://github.com/maelodic/dotfiles"
+	cd dotfiles
 	chmod +x *.sh
 	su "$namebro" -c "sh ./bootstrap.sh"
 }
@@ -95,7 +95,7 @@ installsoftware() {
 	su "$namebro" -c "pacaur -Syy plasma5-applets-active-window-control qt5-graphicaleffects --noconfirm --needed"
 	systemctl enable sddm.service
 	systemctl enable NetworkManager
-	chmod +x /home/$namebro/maelo-dotfiles/*.sh
+	chmod +x /home/$namebro/dotfiles/*.sh
 }
 
 main() {
