@@ -51,7 +51,7 @@ usersetup() {
 		read anot
 		if [ "$anot" == Y -o "$anot" == y -o "$anot" == yes -o "$anot" == YES ]
 			then
-			printf "$namebro ALL=(ALL) ALL NOPASSWD: /usr/bin/reflector" >> /etc/sudoers
+			printf "$namebro ALL=(ALL) NOPASSWD: /usr/bin/reflector" >> /etc/sudoers
 		fi
 }
 
@@ -90,9 +90,14 @@ setupuser() {
 	su "$namebro" -c "sh ./bootstrap.sh"
 }
 
+rootpasswd() {
+	clear
+	printf "Set ROOT Password: "
+	passwd
+}
+
 installsoftware() {
-	pacman -Syy reflector packagekit-qt5 python-pyqt5 qt5-declarative git python-dbus python-yaml wmctrl xdotool python-gobject dialog plasma-meta kde-applications-meta sddm xorg-server xorg-font-util xorg-xinit xterm ttf-dejavu xf86-video-vesa xf86-input-synaptics firefox vim plasma-nm latte-dock --noconfirm --needed
-	su "$namebro" -c "pacaur -Syy plasma5-applets-active-window-control qt5-graphicaleffects --noconfirm --needed"
+	pacman -Syy reflector packagekit-qt5 python-pyqt5 qt5-declarative git python-dbus python-yaml wmctrl xdotool python-gobject dialog plasma-meta kde-applications-meta sddm xorg-server xorg-font-util xorg-xinit xterm ttf-dejavu xf86-video-vesa xf86-input-synaptics firefox vim plasma-nm latte-dock plasma5-applets-active-window-control qt5-graphicaleffects --noconfirm --needed
 	systemctl enable sddm.service
 	systemctl enable NetworkManager
 	chmod +x /home/$namebro/dotfiles/*.sh
