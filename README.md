@@ -28,4 +28,4 @@ All prompts at the beginning for a seemless experience
 Rework colors and flavors from the original fork   
 Nvidia support   
 Autodetect drivers.   
- 
+Seperate personal dotfiles from install project.
