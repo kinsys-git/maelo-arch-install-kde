@@ -30,6 +30,6 @@ Rework colors and flavors from the original fork
 Nvidia support   
 Autodetect drivers.   
 Do not continue if password change failes    
-Utilitze pacstrap to consolidate into a single script   
+Utilitze pacstrap to have the large download happen all at once instead of two parts   
 Better comments   
 ~Seperate personal dotfiles from install project.~
