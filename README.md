@@ -1,5 +1,7 @@
 # maelo-arch-install-kde
 
+CURRENTLY TESTING, SUBJECT TO CHANGE OR FLAT OUT NOT WORK
+
 Personalized Arch install script, heavily borrowing from https://github.com/i3-Arch/Arch-Installer
 
 If you want a generalized arch installer, that one is still better. This one will install my personalized KDE interface.
