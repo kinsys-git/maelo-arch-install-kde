@@ -1,6 +1,15 @@
 # maelo-arch-install-kde
 
-CURRENTLY TESTING, SUBJECT TO CHANGE OR FLAT OUT NOT WORK
+KDE CUSTOM SETUP NOT CURRENTLY FUNCTIONAL. 
+You can run these commands after logging in to use my setup:
+
+    cd ~
+    git clone https://github.com/maelodic/dotfiles
+    cd dotfiles
+    chmod +x bootstrap.sh
+    ./bootstrap.sh
+    rm -rf .git
+Then log out and back in.
 
 Personalized Arch install script, heavily borrowing from https://github.com/i3-Arch/Arch-Installer
 
