@@ -4,8 +4,6 @@ Personalized Arch install script, heavily borrowing from https://github.com/i3-A
 
 If you want a generalized arch installer, that one is still better. This one will install my personalized KDE interface.
 
-This script puts many dotfiles into a "dotfiles" directory in your home folder, which is downloaded from https://github.com/maelodic/dotfiles, and keeps the git file for my own repository. Feel free to fork.
-
 To install, run this command after connecting to the internet on the arch install disk:
 
     wget https://raw.githubusercontent.com/maelodic/maelo-arch-install-kde/master/arch-setup.sh ; chmod +x arch-setup.sh ; ./arch-setup.sh
@@ -28,4 +26,4 @@ All prompts at the beginning for a seemless experience
 Rework colors and flavors from the original fork   
 Nvidia support   
 Autodetect drivers.   
-Seperate personal dotfiles from install project.
+~Seperate personal dotfiles from install project.~

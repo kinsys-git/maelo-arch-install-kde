@@ -83,12 +83,15 @@ bobthebuilder() {
 	fi
 }
 
-setupuser() {
-	cd /home/$namebro
-	su "$namebro" -c "git clone https://github.com/maelodic/dotfiles"
-	cd dotfiles
-	chmod +x *.sh
-	su "$namebro" -c "sh ./bootstrap.sh"
+setupskel() {
+	cd /root
+	git clone https://github.com/maelodic/maelo-arch-install-kde
+	cd maelo-arch-install-kde
+	cp .config /etc/skel
+	cp .kde4 /etc/skel
+	cp .local /etc/skel
+	cd ..
+	rm -rf maelo-arch-install-kde
 }
 
 rootpasswd() {
@@ -106,9 +109,9 @@ installsoftware() {
 
 main() {
 	intelinside
+	setupskel
 	usersetup
 	bobthebuilder
-	setupuser
 	rootpasswd
 	installsoftware
 }
