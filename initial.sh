@@ -87,9 +87,13 @@ setupskel() {
 	cd /root
 	git clone https://github.com/maelodic/maelo-arch-install-kde
 	cd maelo-arch-install-kde
-	cp .config /etc/skel
-	cp .kde4 /etc/skel
-	cp .local /etc/skel
+	mkdir /etc/skel/dotfiles
+	cp config /etc/skel/dotfiles/config
+	cp kde4 /etc/skel/dotfiles/kde4
+	cp local /etc/skel/dotfiles/local
+	ln -s /etc/skel/dotfiles/config /etc/skel/.config
+	ln -s /etc/skel/dotfiles/local /etc/skel/.local
+	ln -s /etc/skel/dotfiles/kde4 /etc/skel/.kde4
 	cd ..
 	rm -rf maelo-arch-install-kde
 }
