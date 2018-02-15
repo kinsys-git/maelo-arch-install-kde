@@ -1,15 +1,6 @@
 # maelo-arch-install-kde
 
-KDE CUSTOM SETUP NOT CURRENTLY FUNCTIONAL. 
-You can run these commands after logging in to use my setup:
-
-    cd ~
-    git clone https://github.com/maelodic/dotfiles
-    cd dotfiles
-    chmod +x bootstrap.sh
-    ./bootstrap.sh
-    rm -rf .git
-Then log out and back in.
+Not currently working - please come back later.
 
 ---------------------------------------
 Personalized Arch install script, heavily borrowing from https://github.com/i3-Arch/Arch-Installer
@@ -33,6 +24,7 @@ Some things that aren't immediately obvious:
 -Once a window is maximized the title disappears- the exit and minimize buttons then show up on the top bar   
 
 TO-DO:   
+Get /etc/skel working functionally.   
 Better comments   
 All prompts at the beginning for a seemless experience   
 Rework colors and flavors from the original fork   
