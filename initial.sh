@@ -84,14 +84,13 @@ bobthebuilder() {
 }
 
 setupskel() {
-	cd /root
-	git clone https://github.com/maelodic/maelo-arch-install-kde
-	cp -r /root/maelo-arch-install-kde/dotfiles /etc/skel/dotfiles
+	pacman -Syy svn --noconfirm --needed
+	cd /etc/skel
+	svn checkout https://github.com/maelodic/maelo-arch-install-kde/trunk/dotfiles
 	ln -s /etc/skel/dotfiles/config /etc/skel/.config
 	ln -s /etc/skel/dotfiles/local /etc/skel/.local
 	ln -s /etc/skel/dotfiles/kde4 /etc/skel/.kde4
-	rm -rf /root/maelo-arch-install-kde
-}
+}	
 
 rootpasswd() {
 	clear
@@ -103,7 +102,6 @@ installsoftware() {
 	pacman -Syy reflector packagekit-qt5 python-pyqt5 qt5-declarative git python-dbus python-yaml wmctrl xdotool python-gobject dialog plasma-meta kde-applications-meta sddm xorg-server xorg-font-util xorg-xinit xterm ttf-dejavu xf86-video-vesa xf86-input-synaptics firefox vim plasma-nm latte-dock plasma5-applets-active-window-control qt5-graphicaleffects --noconfirm --needed
 	systemctl enable sddm.service
 	systemctl enable NetworkManager
-	chmod +x /home/$namebro/dotfiles/*.sh
 }
 
 main() {
