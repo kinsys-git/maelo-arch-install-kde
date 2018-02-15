@@ -86,7 +86,7 @@ bobthebuilder() {
 setupskel() {
 	cd /root
 	git clone https://github.com/maelodic/maelo-arch-install-kde
-	cp /root/maelo-arch-install-kde/dotfiles /etc/skel/dotfiles
+	cp -r /root/maelo-arch-install-kde/dotfiles /etc/skel/dotfiles
 	ln -s /etc/skel/dotfiles/config /etc/skel/.config
 	ln -s /etc/skel/dotfiles/local /etc/skel/.local
 	ln -s /etc/skel/dotfiles/kde4 /etc/skel/.kde4
