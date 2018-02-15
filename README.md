@@ -11,6 +11,7 @@ You can run these commands after logging in to use my setup:
     rm -rf .git
 Then log out and back in.
 
+---------------------------------------
 Personalized Arch install script, heavily borrowing from https://github.com/i3-Arch/Arch-Installer
 
 If you want a generalized arch installer, that one is still better. This one will install my personalized KDE interface.
