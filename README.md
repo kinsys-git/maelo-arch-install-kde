@@ -25,9 +25,11 @@ Some things that aren't immediately obvious:
 
 TO-DO:   
 Get /etc/skel working functionally.   
-Better comments   
 All prompts at the beginning for a seemless experience   
 Rework colors and flavors from the original fork   
 Nvidia support   
 Autodetect drivers.   
+Do not continue if password change failes    
+Utilitze pacstrap to consolidate into a single script   
+Better comments   
 ~Seperate personal dotfiles from install project.~
