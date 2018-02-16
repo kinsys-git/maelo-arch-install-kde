@@ -11,7 +11,7 @@ Version="1.0-BETA"
 # COLORS
 red=$(tput setaf 1)
 white=$(tput setaf 7)
-blue=$(tput setaf 4)
+blue=$(tput setaf 6)
 yellow=$(tput setaf 3)
 
 allvariables() {
@@ -22,29 +22,30 @@ allvariables() {
 	sleep 1
 
 	clear
-	printf "\n${yellow}Enter your ${blue}Time Zone ${white}\n "
-	printf "\n${white}(1)${yellow}for ${blue}Eastern \n "
+	printf "${yellow}Enter your ${blue}Time Zone${white}\n\n "
+	printf "${white}(1)${yellow}for ${blue}Eastern \n "
 	printf "${white}(2)${yellow}for ${blue}Central \n "
 	printf "${white}(3)${yellow}for ${blue}Mountain\n "
 	printf "${white}(4)${yellow}for ${blue}Pacific\n "
 	printf ""
-	printf "\n${white} Choice: "
+	printf "\n${white}Choice: "
 	read timezoneresponse
 	export timezoneresponse
 	sleep 1
 
 	clear
-	printf "\n${yellow}Would you like to use ${blue}default locale${yellow} or choose your own? \n\n "
+	printf "${yellow}Would you like to use ${blue}default locale${yellow} or choose your own? \n\n "
 	printf "${yellow}Default locale is ${blue}en_US.UTF-8 UTF-8 \n\n "
-	printf "\n${white}(Y)${yellow} for default locale \n${white}(N) ${yellow}for choose your own \n "
-	printf "\n${white}Choice: "
+	printf "${white}(Y)${yellow} for ${blue}default locale\n"
+	printf "${white}(N)${yellow} for ${blue}choose your own \n"
+	printf "${white}Choice: "
 	read inputscuzlocale
 	export inputscuzlocale
 	sleep 1
 
 	clear
 	printf "\n\n${yellow}Would you like to install ${blue}Intel Graphics Drivers? "	
-	printf "\n${white}[${blue}Y${white}|${Yellow}N${white}] "
+	printf "\n${white}[${yellow}Y${white}|${red}N${white}] "
 	printf "\n\n${white}Answer: "
 	read intelstuff
 	export intelstuff
@@ -52,8 +53,8 @@ allvariables() {
 		then
 		sleep 1
 	else
-		printf "\n\n ${blue}Would you like to install AMD Graphics Drivers? \n"
-		printf "\n${white}[${blue}Y${white}|${Yellow}N${white}] "
+		printf "\n\n ${yellow}Would you like to install ${blue}AMD Graphics Drivers? \n"
+		printf "\n${white}[${yellow}Y${white}|${red}N${white}] "
 		printf "\n\n${white}Answer: "
 		read amdstuff
 		export amdstuff
@@ -73,7 +74,7 @@ allvariables() {
 	sleep 1
 
 	clear
-	printf "\n\n ${yellow} Enter the ${blue}username you want to create \n "
+	printf "\n\n ${yellow} Enter the ${blue}username ${yellow}you want to create \n "
 	printf "\n\n ${red} Do not enter ${yellow}Test${red} as a username.\n \033"
 	printf "\n${white}Username: "
 	read namebro
@@ -84,7 +85,7 @@ allvariables() {
 			read namebro
 	fi
 	printf "\n\n ${yellow}Would you like to add this user to ${blue}sudoers?"
-	printf "\n\n ${white}[${blue}Y${white}|${yellow}N${white}] "
+	printf "\n\n ${white}[${yellow}Y${white}|${red}N${white}] "
 	printf "\033[1m\n\n ${white}Answer: "
 	read anot
 	export namebro
@@ -133,10 +134,10 @@ checkdat() {
 
 disk() {
 	clear
-	printf " ${yellow} Listing Block Devices \n\n "
+	printf " ${yellow} Listing ${blue}Block Devices${white} \n\n "
 	lsblk |grep -v "loop*" |grep -v "arch_root*"
-	printf " \n${yellow} Which ${blue}drive would you like to install to?:${yellow} i.e. ${blue}/dev/sda \n  "
-	printf " ${red} WARNING:${blue} Partitioning and formatting ${yellow} your drive ${red}WILL ${yellow} wipe any data on the drives/partitions. "
+	printf " \n${yellow} Which ${blue}drive ${yellow}would you like to install to?:${yellow} i.e. ${blue}/dev/sda \n  "
+	printf " ${red} WARNING:${blue} Partitioning ${yellow}and${blue} formatting ${yellow} your drive ${red}WILL ${yellow} wipe any data on the drives/partitions. "
 	printf " ${red} DO NOT ${yellow}proceed if you do not know what you are doing. "
 	printf " \n\n${white} Drive: "
 	read yourdrive
@@ -237,8 +238,8 @@ FULLpart() {
 
 doiencrypt() {
 	clear
-	printf " ${blue} Encrypt Root? \n "
-	printf " ${yellow} [Y/N]: "
+	printf " ${blue}Encrypt Root? \n "
+	printf " ${white}[${yellow}Y${white}/${red}N${white}]: "
 	read encRyesno
 	export encRyesno
 	if [ "$encRyesno" == Y -o "$encRyesno" == y ]
@@ -253,7 +254,7 @@ doiencrypt() {
 	if [ "$thechoiceman" -eq 2 -o "$thechoiceman" -eq 3 ]
 		then
 		printf "${blue} Encrypt Home? \n "
-		printf "${yellow} [Y/N]: "
+	printf " ${white}[${yellow}Y${white}/${red}N${white}]: "
 		read encHyesno
 		export encHyesno
 		if [ "$encHyesno" == Y -o "$encHyesno" == y ]
@@ -269,7 +270,7 @@ doiencrypt() {
 	if [ "$thechoiceman" -eq 3 ]
 		then
 		printf "${blue} Encrypt Swap? \n "
-		printf "${yellow} [Y/N]: "
+		printf " ${white}[${yellow}Y${white}/${red}N${white}]: "
 		read encSyesno
 		export encSyesno
 		if [ "$encSyesno" == Y -o "$encSyesno" == y ]

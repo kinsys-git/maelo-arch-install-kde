@@ -3,7 +3,7 @@
 # COLORS
 red=$(tput setaf 1)
 white=$(tput setaf 7)
-blue=$(tput setaf 4)
+blue=$(tput setaf 6)
 yellow=$(tput setaf 3)
 
 # Set Your Hostname
