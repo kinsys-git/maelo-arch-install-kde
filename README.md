@@ -1,8 +1,6 @@
 # maelo-arch-install-kde
 
-Personalized Arch install script, heavily borrowing from https://github.com/i3-Arch/Arch-Installer
-
-If you want a generalized arch installer, that one is still better. This one will install my personalized KDE interface.
+Personalized Arch install script, which installs KDE and my custom setup for it.
 
 **Installation**
 
@@ -30,11 +28,7 @@ Some things that aren't immediately obvious:
 -Once a window is maximized the title disappears- the exit and minimize buttons then show up on the top bar   
 
 *TO-DO:*   
-~Get /etc/skel working functionally.~   
-All prompts at the beginning for a seemless experience   
-Rework colors and flavors from the original fork   
 Nvidia support   
 Autodetect drivers.   
 Do not continue if password change failes    
-Better comments   
-~Seperate personal dotfiles from install project.~
+Better comments  
