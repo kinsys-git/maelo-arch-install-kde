@@ -357,7 +357,7 @@ candy() {
 postsetup() {
 	cp config.sh /mnt/root/config.sh
 	cd /mnt/root
-	wget https://raw.githubusercontent.com/maelodic/maelo-arch-install-kde/master/chrootsetup.sh
+	wget https://raw.githubusercontent.com/maelodic/maelo-arch-install-kde/testing/chrootsetup.sh
 	chmod +x chrootsetup.sh
 	arch-chroot /mnt /bin/bash /root/chrootsetup.sh
 }
