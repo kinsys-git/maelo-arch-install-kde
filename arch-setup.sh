@@ -121,7 +121,7 @@ mirrors() {
 checkdat() {
 	if [ "$(id -u)" -eq 0 ]	
 		then
-		printf "\033[1m\n ${yellow}Maelo ${Blue}Arch\n"
+		printf "\033[1m\n ${yellow}Maelo ${blue}Arch\n"
 		sed -i '37iILoveCandy' /etc/pacman.conf
 		sleep 3
 	else
