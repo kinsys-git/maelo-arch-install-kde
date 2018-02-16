@@ -4,7 +4,7 @@ Personalized Arch install script, heavily borrowing from https://github.com/i3-A
 
 If you want a generalized arch installer, that one is still better. This one will install my personalized KDE interface.
 
-*Installation*
+**Installation**
 
 Download the Arch Linux ISO from one of the mirrors listed here: https://www.archlinux.org/download/
 
@@ -17,6 +17,8 @@ Boot into your install disk, and run this command:
 
 The installer will take you through the rest of the process
 
+**Additional Information**
+
 THe KDE installed is a conglomorate of many features I appreciate from Gnome and Unity
 
 Some things that aren't immediately obvious:   
@@ -27,13 +29,12 @@ Some things that aren't immediately obvious:
 -Super+(Mouse) can manipulate open windows. Left click to move, right click to resize, middle click to minimize, scroll wheel to change opacity.   
 -Once a window is maximized the title disappears- the exit and minimize buttons then show up on the top bar   
 
-TO-DO:   
-Get /etc/skel working functionally.   
+*TO-DO:*   
+~Get /etc/skel working functionally.~   
 All prompts at the beginning for a seemless experience   
 Rework colors and flavors from the original fork   
 Nvidia support   
 Autodetect drivers.   
 Do not continue if password change failes    
-Utilitze pacstrap to have the large download happen all at once instead of two parts   
 Better comments   
 ~Seperate personal dotfiles from install project.~
