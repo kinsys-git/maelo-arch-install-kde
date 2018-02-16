@@ -6,56 +6,55 @@
 ############################################
 
 #Version
-Version="2.0-BETA"
+Version="1.0-BETA"
 
 # COLORS
 red=$(tput setaf 1)
 white=$(tput setaf 7)
-green=$(tput setaf 2)
+blue=$(tput setaf 4)
 yellow=$(tput setaf 3)
 
 allvariables() {
 	clear
-	printf "\033[1m \n ${yellow}Choose your hostname: ${white} \033[0m"
+	printf "${yellow}Choose your ${blue}hostname: ${white} "
 	read hostresponse
 	export hostresponse
 	sleep 1
 
 	clear
-	printf "\033[1m \n ${yellow}     Enter your Time Zone ${white}\n \033[0m"
-	printf "\033[1m \n ${red}CHOICES ARE: ${white}New York ${green}or ${white}Athens \n \033[0m"
-	printf "\033[1m \n ${yellow}Sorry I didnt do all timezones yet\n \n \033[0m"
-	printf "\033[1m \n ${white}ENTER ${green}(1)${red}for Eastern \n \033[0m"
-	printf "\033[1m${white}ENTER ${green}(2)${red}for Central \n \033[0m"
-	printf "\033[1m${white}ENTER ${green}(3)${red}for Pacific\n \033[0m"
-	printf "\033[1m${white}ENTER ${green}(4)${red}for Pacific\n \033[0m"
-	printf "\033[1m \n ${white} Choice: \033[0m"
+	printf "\n${yellow}Enter your ${blue}Time Zone ${white}\n "
+	printf "\n${white}(1)${yellow}for ${blue}Eastern \n "
+	printf "${white}(2)${yellow}for ${blue}Central \n "
+	printf "${white}(3)${yellow}for ${blue}Mountain\n "
+	printf "${white}(4)${yellow}for ${blue}Pacific\n "
+	printf ""
+	printf "\n${white} Choice: "
 	read timezoneresponse
 	export timezoneresponse
 	sleep 1
 
 	clear
-	printf "\033[1m \n${green}Would you like to use default locale or choose your own? \n\n \033[0m"
-	printf "\033[1m ${white}Default locale is ${red}en_US.UTF-8 UTF-8 \n\n \033[0m"
-	printf "\033[1m \n${yellow}(Y)${green} for default locale \n${yellow}(N) ${green}for choose your own \n \033[0m"
-	printf "\033[1m \n ${white}Choice: \033[0m"
+	printf "\n${yellow}Would you like to use ${blue}default locale${yellow} or choose your own? \n\n "
+	printf "${yellow}Default locale is ${blue}en_US.UTF-8 UTF-8 \n\n "
+	printf "\n${white}(Y)${yellow} for default locale \n${white}(N) ${yellow}for choose your own \n "
+	printf "\n${white}Choice: "
 	read inputscuzlocale
 	export inputscuzlocale
 	sleep 1
 
 	clear
-	printf "\033[1m \n\n${green}Would you like to install Intel Graphics Drivers? \033[0m"	
-	printf "\033[1m \n ${white}[${green}Y${white}|${red}N${white}] \033[0m"
-	printf "\033[1m \n\n${yellow}Answer: ${white}\033[0m"
+	printf "\n\n${yellow}Would you like to install ${blue}Intel Graphics Drivers? "	
+	printf "\n${white}[${blue}Y${white}|${Yellow}N${white}] "
+	printf "\n\n${white}Answer: "
 	read intelstuff
 	export intelstuff
 	if [ "$intelstuff" == Y -o "$intelstuff" == y ]
 		then
 		sleep 1
 	else
-		printf "\033[1m \n\n ${green}Would you like to install AMD Graphics Drivers? \n\033[0m"
-		printf "\033[1m \n ${white}[${green}Y${white}|${red}N${white}] \033[0m"
-		printf "\033[1m \n ${yellow}Answer: ${white}\033[0m"
+		printf "\n\n ${blue}Would you like to install AMD Graphics Drivers? \n"
+		printf "\n${white}[${blue}Y${white}|${Yellow}N${white}] "
+		printf "\n\n${white}Answer: "
 		read amdstuff
 		export amdstuff
 		if [ "$amdstuff" == Y -o "$amdstuff" == y ]
@@ -65,38 +64,38 @@ allvariables() {
 	fi
 
 	clear
-	printf "\033[1m\n\n ${green}Would you like to setup pacaur ? \n\033[0m"
-	printf "\033[1m\n\n ${white}It's an ${red}AUR ${white}helper with cower backend \n\n\033[0m"
-	printf "\033[1m\n\n${white}[${green}Y${white}|${red}N${white}]\n\n\033[0m"
-	printf "\033[1m\n\n${red}Answer: ${white}\033[0m"
+	printf "\033[1m\n\n ${yellow}Would you like to setup ${blue}pacaur? \n"
+	printf "\033[1m\n\n ${yellow}It's an ${blue}AUR helper${yellow} with cower backend \n\n"
+	printf "\033[1m\n\n${white}[${blue}Y${white}|${yellow}N${white}]\n\n"
+	printf "\033[1m\n\n${white}Answer: "
 	read thatquestion
 	export thatquestion
 	sleep 1
 
 	clear
-	printf "\033[1m \n\n ${yellow} Enter username you want to create \n \033[0m"
-	printf "\033[1m \n\n ${red} Do not ${white}enter ${red}Test${white} as a ${red}username.\n \033"
-	printf "\033[1m \n Username:${white} \033[0m"
+	printf "\n\n ${yellow} Enter the ${blue}username you want to create \n "
+	printf "\n\n ${red} Do not enter ${yellow}Test${red} as a username.\n \033"
+	printf "\n${white}Username: "
 	read namebro
 	if [ "$namebro" == Test ]
 		then
-			printf "\033[1m \n ${red}ERROR, DONT ENTER: ${white}Test\n\033[0m"
-			printf "\033[1m \n ${white}TRY AGAIN: \033[0m"
+			printf "\n${red}ERROR: ${white}Test\n"
+			printf "\n${white}TRY AGAIN: "
 			read namebro
 	fi
-	printf "\033[1m \n\n ${yellow}Would you like to add this user to sudoers? ( user ALL=(ALL) ALL ) \033[0m"
-	printf "\033[1m \n\n ${white}[${green}Y${white}|${red}N${white}] \033[0m"
-	printf "\033[1m\n\n ${red}Answer: ${white}\033[0m"
+	printf "\n\n ${yellow}Would you like to add this user to ${blue}sudoers?"
+	printf "\n\n ${white}[${blue}Y${white}|${yellow}N${white}] "
+	printf "\033[1m\n\n ${white}Answer: "
 	read anot
 	export namebro
 	export anot
 	sleep 1
 	
 	clear
-	printf "\033[1m \n ${white} CHOOSE YOUR BOOTLOADER \n \033[0m"
-	printf "\033[1m \n ${white}(1) ${red}For Grub \n \033[0m"
-	printf "\033[1m \n ${white}(2) ${red}For SysLinux \n \033[0m"
-	printf "\033[1m \n ${yellow}CHOICE: ${white}\033[0m"
+	printf "\n${yellow} CHOOSE YOUR ${blue}BOOTLOADER \n "
+	printf "\n${white}(1) ${yellow}For ${blue}Grub \n "
+	printf "\n${white}(2) ${yellow}For ${blue}SysLinux \n "
+	printf "\n${white}CHOICE: "
 	read bootloadchoice
 	if [ "$bootloadchoice" -eq 1 ]
 		then
@@ -105,7 +104,7 @@ allvariables() {
 		then
 		sleep 1
 	else
-		printf "\033[1m ${red}Not Understood ${white}|${red} Setting up grub by default \033[0m"
+		printf "${red}Not Understood ${white}|${yellow} Setting up grub by default "
 	sleep 1
 	fi
 	export bootloadchoice
@@ -121,12 +120,12 @@ mirrors() {
 checkdat() {
 	if [ "$(id -u)" -eq 0 ]	
 		then
-		printf "\033[1m\n ${yellow}Maelo ${white}Arch\n\033[0m"
+		printf "\033[1m\n ${yellow}Maelo ${Blue}Arch\n"
 		sed -i '37iILoveCandy' /etc/pacman.conf
 		sleep 3
 	else
-		printf "\033[1m ${red} You Need To Be ROOT \n\033[0m"
-		printf "\033[1m ${yellow} You really need to look at the ReadMe on github \033[0m"
+		printf "${red} You Need To Be ROOT \n"
+		printf "${yellow} You really need to look at the ReadMe on github "
 		exit
 	fi
 }
@@ -134,15 +133,16 @@ checkdat() {
 
 disk() {
 	clear
-	printf " \033[1m ${red} Listing Block Devices \n\n \033[0m"
+	printf " ${yellow} Listing Block Devices \n\n "
 	lsblk |grep -v "loop*" |grep -v "arch_root*"
-	printf " \033[1m \n ${white} Which drive would you like to install to?:${red} i.e. ${white}/dev/sda \n \033[0m "
-	printf " \033[1m ${red} WARNING:${green} /dev/sda ${white}may not be empty on your system\n \033[0m "
-	printf " \033[1m \n ${yellow} Drive: ${white}\033[0m "
+	printf " \n${yellow} Which ${blue}drive would you like to install to?:${yellow} i.e. ${blue}/dev/sda \n  "
+	printf " ${red} WARNING:${blue} Partitioning and formatting ${yellow} your drive ${red}WILL ${yellow} wipe any data on the drives/partitions. "
+	printf " ${red} DO NOT ${yellow}proceed if you do not know what you are doing. "
+	printf " \n\n${white} Drive: "
 	read yourdrive
 	export yourdrive
-	printf " \033[1m ${white} \n Partition with ${green} cfdisk ${white} or ${green} fdisk ? \n \033[0m"
-	printf " \033[1m \n ${yellow} Tool Choice: ${white}\033[0m"
+	printf " ${yellow} \n Partition with ${blue} cfdisk ${yellow} or ${blue} fdisk ? \n "
+	printf " \n${white}Tool Choice: "
 	read toolchoice
 	if [ "$toolchoice" == cfdisk -o "$toolchoice" == CFDISK ]
 		then
@@ -155,24 +155,23 @@ disk() {
 # If you don't know how to partition properly, you don't need this OS.
 ASKme() {
 	clear
-	printf "\033[1m \n${green}       CHOICES \n\n\n\033[0m"
-	printf " \033[1m  ${red}(1)${white}boot and root partitions \n \033[0m"
-	printf " \033[1m ${red}(2)${white}boot, root, home partitions \n \033[0m "
-	printf " \033[1m${red}(3)${white}boot, root, home, swap partitions \n \n \033[0m"
-	printf " \033[1m ${white}\n SELECT \n\n${red}       1 ${red}2 ${white}or${red} 3 \n\n \033[0m"
-	printf " \033[1m ${yellow}Your Selection: ${white}\033[0m"
+	printf "\n${yellow}How would you like to ${blue}partition ${yellow}your disk? \n\n\n"
+	printf "  ${white}(1)${blue}boot ${yellow}and ${blue}root${yellow} partitions \n "
+	printf " ${white}(2)${blue}boot, root, ${yellow}and ${blue}home${yellow} partitions \n  "
+	printf " ${white}(3)${blue}boot, root, home, ${yellow}and${blue} swap${yellow} partitions \n \n "
+	printf " ${white}Your Selection: "
 	read thechoiceman
 	export thechoiceman
 }
 
 SMALLpart() {
-	printf " \033[1m ${white}\n Enter your Boot Partition: ${red}i.e. ${green}/dev/sda1 \n \033[0m"
-    	printf " \033[1m \n ${yellow}Boot Partition: ${white}\033[0m"    
+	printf " ${yellow}\n Enter your ${blue}Boot Partition: ${yellow}i.e. ${blue}/dev/sda1 \n "
+    printf " \n${white}Boot Partition: "    
 	read bootpart
 	export bootpart
     	mkfs.ext4 "$bootpart" -L bootfs
-	printf " \033[1m ${white}\n Enter your Root Partition:${red} i.e. ${green}/dev/sda2 \n \033[0m"
-    	printf " \033[1m ${yellow}\n Root Partition: ${white}\033[0m"
+	printf " ${yellow}\n Enter your ${blue}Root Partition:${yellow} i.e. ${blue}/dev/sda2 \n "
+    printf " ${white}\n Root Partition: "
 	read rewtpart
     	export rewtpart
     	if [ "$encRyesno" == N -o "$encRyesno" == n ]
@@ -182,21 +181,21 @@ SMALLpart() {
 }
 
 HALFpart() {
-        printf " \033[1m \n${white} Enter your Boot Partition: ${red}i.e. /dev/sda1 \n \033[0m"
-        printf " \033[1m \n ${yellow}Boot Partition: ${white} \033[0m"
+	printf " ${yellow}\n Enter your ${blue}Boot Partition: ${yellow}i.e. ${blue}/dev/sda1 \n "
+    printf " \n${white}Boot Partition: "    
 	read bootpart
-        export bootpart
-        mkfs.ext4 "$bootpart" -L bootfs
-        printf " \033[1m \n ${white}Enter your Root Partition: ${red}i.e. /dev/sda2 \n \033[0m"
-        printf " \033[1m \n  ${yellow}Root Partition: ${white} \033[0m"
+	export bootpart
+    mkfs.ext4 "$bootpart" -L bootfs
+	printf " ${yellow}\n Enter your ${blue}Root Partition:${yellow} i.e. ${blue}/dev/sda2 \n "
+    printf " ${white}\n Root Partition: "
 	read rewtpart
         export rewtpart
         if [ "$encRyesno" == N -o "$encRyesno" == n ]
 		then
 		mkfs.ext4 "$rewtpart" -L rootfs
 	fi
-	printf " \033[1m \n ${white}Enter your Home Partition: ${red}i.e. /dev/sda3 \n \033[0m"
-    	printf " \033[1m \n ${yellow}Home Partition: ${white} \033[0m"
+	printf " ${yellow}\n Enter your ${blue}Home Partition:${yellow} i.e. ${blue}/dev/sda3 \n "
+    printf " ${white}\n Home Partition: "
 	read homepart
         export homepart
         if [ "$encHyesno" == N -o "$encHyesno" == n ]
@@ -206,29 +205,29 @@ HALFpart() {
 }
 
 FULLpart() {
-	printf "\033[1m \n ${white}Enter your Boot Partition: ${red}i.e. /dev/sda1 \n \033[0m"
-	printf "\033[1m \n ${yellow}Boot Partition: ${white}\033[0m"
+	printf " ${yellow}\n Enter your ${blue}Boot Partition:${yellow} i.e. ${blue}/dev/sda1 \n "
+    printf " ${white}\n Boot Partition: "
 	read bootpart
 	export bootpart
 	mkfs.ext4 "$bootpart" -L bootfs
-	printf "\033[1m \n ${white}Enter your Root Partition: ${red}i.e. /dev/sda2 \n \033[0m"
-	printf " \033[1m \n ${yellow}Root Partition: ${white}\033[0m"
+	printf " ${yellow}\n Enter your ${blue}Root Partition:${yellow} i.e. ${blue}/dev/sda2 \n "
+    printf " ${white}\n Root Partition: "
 	read rewtpart
 	export rewtpart
    	if [ "$encRyesno" == N -o "$encRyesno" == n ]
 		then
 		mkfs.ext4 "$rewtpart" -L rootfs
 	fi	
-	printf " \033[1m \n ${white}Enter your Home Partition: ${red}i.e. /dev/sda3 \n \033[0m"
-	printf "\033[1m \n ${yellow}Home Partition: ${white}\033[0m"
+	printf " ${yellow}\n Enter your ${blue}Home Partition:${yellow} i.e. ${blue}/dev/sda3 \n "
+    printf " ${white}\n Home Partition: "
 	read homepart
 	export homepart
    	if [ "$encHyesno" == N -o "$encHyesno" == n ]
 		then
 		mkfs.ext4 "$homepart"
 	fi	
-	printf "\033[1m \n ${white}Enter your Swap Partition: ${red}i.e. /dev/sda5 \n \033[0m"
-	printf "\033[0m \n ${yellow}Swap Partition: ${white}\033[0m"
+	printf " ${yellow}\n Enter your ${blue}Swap Partition:${yellow} i.e. ${blue}/dev/sda4 \n "
+    printf " ${white}\n Swap Partition: "
 	read swappart
 	export swappart
 	mkswap -U 13371337-0000-4000-0000-133700133700 $swappart
@@ -238,8 +237,8 @@ FULLpart() {
 
 doiencrypt() {
 	clear
-	printf " \033[1m ${green} Encrypt Root? \n \033[0m"
-	printf " \033[1m ${yellow} [Y/N]: \033[0m"
+	printf " ${blue} Encrypt Root? \n "
+	printf " ${yellow} [Y/N]: "
 	read encRyesno
 	export encRyesno
 	if [ "$encRyesno" == Y -o "$encRyesno" == y ]
@@ -253,8 +252,8 @@ doiencrypt() {
 	fi
 	if [ "$thechoiceman" -eq 2 -o "$thechoiceman" -eq 3 ]
 		then
-		printf "\033[1m ${green} Encrypt Home? \n \033[0m"
-		printf "\033[1m ${yellow} [Y/N]: \033[0m"
+		printf "${blue} Encrypt Home? \n "
+		printf "${yellow} [Y/N]: "
 		read encHyesno
 		export encHyesno
 		if [ "$encHyesno" == Y -o "$encHyesno" == y ]
@@ -269,13 +268,13 @@ doiencrypt() {
 	fi
 	if [ "$thechoiceman" -eq 3 ]
 		then
-		printf "\033[1m ${green} Encrypt Swap? \n \033[0m"
-		printf "\033[1m ${yellow} [Y/N]: \033[0m"
+		printf "${blue} Encrypt Swap? \n "
+		printf "${yellow} [Y/N]: "
 		read encSyesno
 		export encSyesno
 		if [ "$encSyesno" == Y -o "$encSyesno" == y ]
 			then
-			printf "\033[1m ${green} Swap will be encrypted! \n \033[0m"
+			printf "${blue} Swap will be encrypted! \n "
 		elif [ "$encSyesno" == N -o "$encSyesno" == n ]
 			then
 			printf "\n Not Encrypting: Moving on \n\n"
@@ -303,7 +302,7 @@ luksencrypt() {
 
 pkgmntchroot() {
 	clear
-	printf " \033[1m ${green} Setting up install... ${white}\n\033[0m "
+	printf " ${yellow} Setting up ${blue}install... ${white}\n "
 	if [ "$encRyesno" == Y -o "$encRyesno" == y ]
 		then
 		mount -t ext4 /dev/mapper/cryptrewt /mnt
@@ -345,8 +344,8 @@ CALLpart() {
 	   then
 	   SMALLpart
 	else
-	    printf "\033[1m ${red}\n\nUnkown Selection\n\n\033[0m"
-	    printf "\033[1m ${white}\n\Only Setting up ${yellow}BOOT ${white}and ${yellow}ROOT\n\033[0m"
+	    printf "${red}\n\nUnkown Selection\n\n"
+	    printf "${yellow}\n\Only Setting up ${blue}BOOT ${yellow}and ${blue}ROOT\n"
 	    sleep 3
 	    SMALLpart
 	fi
@@ -386,8 +385,8 @@ main() {
 	postsetup			## Runs additional setup with chroot hook
 	umount -R /mnt	2> /dev/null	## UNMOUNT 
 	clear
-	printf "\033[1m \n ${green} All done! \n \033[0m"
-	printf "\033[1m \n ${yellow} Reboot now? (y/N) \n \033[0m"
+	printf "\n${yellow} All ${blue}done! \n "
+	printf "\n${white} Reboot now? (y/N) \n "
 	read rebchoice
 	if [ "$rebchoice" == Y -o "$rebchoice" == y ]
 		then

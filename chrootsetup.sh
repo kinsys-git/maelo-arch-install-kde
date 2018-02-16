@@ -3,7 +3,7 @@
 # COLORS
 red=$(tput setaf 1)
 white=$(tput setaf 7)
-green=$(tput setaf 2)
+blue=$(tput setaf 4)
 yellow=$(tput setaf 3)
 
 # Set Your Hostname
@@ -26,7 +26,7 @@ timelocale() {
 		then
 		$( ln -s /usr/share/zoneinfo/US/Pacific /etc/localtime) ;
 	else
-		printf "\033[1m ${red}Not Understood | do it yourself |  with 'ln -s'\n\033[0m"
+		sleep 1
 	fi
 
 	if [ "$inputscuzlocale" == y -o "$inputscuzlocale" == Y ]
@@ -34,11 +34,11 @@ timelocale() {
 		echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
 	else
 		clear
-		printf "${green}Time to setup a ${white}locale. ${green}Press any key to continue."
+		printf "${yellow}Time to setup a ${blue}locale. ${yellow}Press any key to continue."
 		read
 		nano /etc/locale.gen
 	fi
-	printf "\033[1m ${green}NOW GENERATING LOCALES...\n \033[0m"
+	printf "${blue}NOW GENERATING LOCALES...\n "
 	locale-gen
 }
 
@@ -96,7 +96,6 @@ BOOTload() {
 		then
 		syslinuxinst
 	else
-		printf "\033[1m ${red}Not Understood ${white}|${red} Setting up grub by default \033[0m"
 		grubinst
 	fi
 }	
@@ -130,7 +129,7 @@ usersetup() {
 bobthebuilder() {  
 	if [ "$thatquestion" == Y -o "$thatquestion" == y ]
 		then
-		printf "\033[1m\n\n ${green}Setting up pacaur for future use \n\n\033[0m"
+		printf "\033[1m\n\n ${blue}Setting up pacaur for future use \n\n"
 		pacman -Syy expac yajl git perl-error --noconfirm --needed
 		su "$namebro" -c "mkdir /home/$namebro/build-dir"
 		su "$namebro" -c "cd /home/$namebro/build-dir && wget https://aur.archlinux.org/cgit/aur.git/snapshot/cower.tar.gz && tar xzvf cower.tar.gz"
@@ -162,10 +161,10 @@ installsoftware() {
 
 userandrootpasswd() {
 		clear
-		printf "\033[1m \n\n ${yellow} Set a Password for ${red} $namebro ${yellow}now \n\n \033[0m"
+		printf "\n\n ${yellow} Set a Password for${blue} $namebro${white}: \n\n "
 		passwd "$namebro"
 		clear
-		printf "\033[1m \n\n ${yellow} Set a Password for ${red} ROOT ${yellow}now \n\n \033[0m"
+		printf "\n\n ${yellow} Set a Password for${blue} root${white}: \n\n "
 		passwd
 }
 
