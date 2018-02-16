@@ -1,8 +1,5 @@
 #!/bin/bash
 
-#Set all variables from previous install file
-source config.sh 
-
 # COLORS
 red=$(tput setaf 1)
 white=$(tput setaf 7)

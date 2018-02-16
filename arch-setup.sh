@@ -18,7 +18,7 @@ allvariables() {
 	clear
 	printf "\033[1m \n ${yellow}Choose your hostname: ${white} \033[0m"
 	read hostresponse
-	echo "hostresponse=$hostresponse" >> config.sh
+	export hostresponse
 	sleep 1
 
 	clear
@@ -31,7 +31,7 @@ allvariables() {
 	printf "\033[1m${white}ENTER ${green}(4)${red}for Pacific\n \033[0m"
 	printf "\033[1m \n ${white} Choice: \033[0m"
 	read timezoneresponse
-	echo "timezoneresponse=$timezoneresponse" >> config.sh
+	export timezoneresponse
 	sleep 1
 
 	clear
@@ -40,7 +40,7 @@ allvariables() {
 	printf "\033[1m \n${yellow}(Y)${green} for default locale \n${yellow}(N) ${green}for choose your own \n \033[0m"
 	printf "\033[1m \n ${white}Choice: \033[0m"
 	read inputscuzlocale
-	echo "inputscuzlocale=$inputscuzlocale" >> config.sh
+	export inputscuzlocale
 	sleep 1
 
 	clear
@@ -48,7 +48,7 @@ allvariables() {
 	printf "\033[1m \n ${white}[${green}Y${white}|${red}N${white}] \033[0m"
 	printf "\033[1m \n\n${yellow}Answer: ${white}\033[0m"
 	read intelstuff
-	echo "intelstuff=$intelstuff" >> config.sh
+	export intelstuff
 	if [ "$intelstuff" == Y -o "$intelstuff" == y ]
 		then
 		sleep 1
@@ -57,7 +57,7 @@ allvariables() {
 		printf "\033[1m \n ${white}[${green}Y${white}|${red}N${white}] \033[0m"
 		printf "\033[1m \n ${yellow}Answer: ${white}\033[0m"
 		read amdstuff
-		echo "amdstuff=$amdstuff" >> config.sh
+		export amdstuff
 		if [ "$amdstuff" == Y -o "$amdstuff" == y ]
 			then
 			sleep 1
@@ -70,7 +70,7 @@ allvariables() {
 	printf "\033[1m\n\n${white}[${green}Y${white}|${red}N${white}]\n\n\033[0m"
 	printf "\033[1m\n\n${red}Answer: ${white}\033[0m"
 	read thatquestion
-	echo "thatquestion=$thatquestion" >> config.sh
+	export thatquestion
 	sleep 1
 
 	clear
@@ -88,8 +88,8 @@ allvariables() {
 	printf "\033[1m \n\n ${white}[${green}Y${white}|${red}N${white}] \033[0m"
 	printf "\033[1m\n\n ${red}Answer: ${white}\033[0m"
 	read anot
-	echo "namebro=$namebro" >> config.sh
-	echo "anot=$anot" >> config.sh
+	export namebro
+	export anot
 	sleep 1
 	
 	clear
@@ -108,7 +108,7 @@ allvariables() {
 		printf "\033[1m ${red}Not Understood ${white}|${red} Setting up grub by default \033[0m"
 	sleep 1
 	fi
-	echo "bootloadchoice=$bootloadchoice" >> config.sh
+	export bootloadchoice
 }
 
 mirrors() {
@@ -365,7 +365,6 @@ candy() {
 }
 
 postsetup() {
-	cp config.sh /mnt/root/config.sh
 	cd /mnt/root
 	wget https://raw.githubusercontent.com/maelodic/maelo-arch-install-kde/testing/chrootsetup.sh
 	chmod +x chrootsetup.sh
