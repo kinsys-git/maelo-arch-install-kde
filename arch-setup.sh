@@ -162,19 +162,19 @@ ASKme() {
 	printf " \033[1m ${white}\n SELECT \n\n${red}       1 ${red}2 ${white}or${red} 3 \n\n \033[0m"
 	printf " \033[1m ${yellow}Your Selection: ${white}\033[0m"
 	read thechoiceman
-	echo "thechoiceman=$thechoiceman" >> config.sh
+	export thechoiceman
 }
 
 SMALLpart() {
 	printf " \033[1m ${white}\n Enter your Boot Partition: ${red}i.e. ${green}/dev/sda1 \n \033[0m"
     	printf " \033[1m \n ${yellow}Boot Partition: ${white}\033[0m"    
 	read bootpart
-	echo "bootpart=$bootpart" >> config.sh
+	export bootpart
     	mkfs.ext4 "$bootpart" -L bootfs
 	printf " \033[1m ${white}\n Enter your Root Partition:${red} i.e. ${green}/dev/sda2 \n \033[0m"
     	printf " \033[1m ${yellow}\n Root Partition: ${white}\033[0m"
 	read rewtpart
-    	echo "rewtpart=$rewtpart" >> config.sh
+    	export rewtpart
     	if [ "$encRyesno" == N -o "$encRyesno" == n ]
 		then
 		mkfs.ext4 "$rewtpart" -L rootfs
@@ -185,12 +185,12 @@ HALFpart() {
         printf " \033[1m \n${white} Enter your Boot Partition: ${red}i.e. /dev/sda1 \n \033[0m"
         printf " \033[1m \n ${yellow}Boot Partition: ${white} \033[0m"
 	read bootpart
-        echo "bootpart=$bootpart" >> config.sh
+        export bootpart
         mkfs.ext4 "$bootpart" -L bootfs
         printf " \033[1m \n ${white}Enter your Root Partition: ${red}i.e. /dev/sda2 \n \033[0m"
         printf " \033[1m \n  ${yellow}Root Partition: ${white} \033[0m"
 	read rewtpart
-        echo "rewtpart=$rewtpart" >> config.sh
+        export rewtpart
         if [ "$encRyesno" == N -o "$encRyesno" == n ]
 		then
 		mkfs.ext4 "$rewtpart" -L rootfs
@@ -198,7 +198,7 @@ HALFpart() {
 	printf " \033[1m \n ${white}Enter your Home Partition: ${red}i.e. /dev/sda3 \n \033[0m"
     	printf " \033[1m \n ${yellow}Home Partition: ${white} \033[0m"
 	read homepart
-        echo "homepart=$homepart" >> config.sh
+        export homepart
         if [ "$encHyesno" == N -o "$encHyesno" == n ]
 		then
 		mkfs.ext4 "$homepart"
@@ -209,12 +209,12 @@ FULLpart() {
 	printf "\033[1m \n ${white}Enter your Boot Partition: ${red}i.e. /dev/sda1 \n \033[0m"
 	printf "\033[1m \n ${yellow}Boot Partition: ${white}\033[0m"
 	read bootpart
-	echo "bootpart=$bootpart" >> config.sh
+	export bootpart
 	mkfs.ext4 "$bootpart" -L bootfs
 	printf "\033[1m \n ${white}Enter your Root Partition: ${red}i.e. /dev/sda2 \n \033[0m"
 	printf " \033[1m \n ${yellow}Root Partition: ${white}\033[0m"
 	read rewtpart
-	echo "rewtpart=$rewtpart" >> config.sh
+	export rewtpart
    	if [ "$encRyesno" == N -o "$encRyesno" == n ]
 		then
 		mkfs.ext4 "$rewtpart" -L rootfs
@@ -222,7 +222,7 @@ FULLpart() {
 	printf " \033[1m \n ${white}Enter your Home Partition: ${red}i.e. /dev/sda3 \n \033[0m"
 	printf "\033[1m \n ${yellow}Home Partition: ${white}\033[0m"
 	read homepart
-	echo "homepart=$homepart" >> config.sh
+	export homepart
    	if [ "$encHyesno" == N -o "$encHyesno" == n ]
 		then
 		mkfs.ext4 "$homepart"
@@ -230,10 +230,10 @@ FULLpart() {
 	printf "\033[1m \n ${white}Enter your Swap Partition: ${red}i.e. /dev/sda5 \n \033[0m"
 	printf "\033[0m \n ${yellow}Swap Partition: ${white}\033[0m"
 	read swappart
-	echo "swappart=$swappart" >> config.sh
+	export swappart
 	mkswap -U 13371337-0000-4000-0000-133700133700 $swappart
 	swapon $swappart
-	echo "FULLpart=696" >> config.sh
+	export FULLpart=696
 }
 
 doiencrypt() {
@@ -241,7 +241,7 @@ doiencrypt() {
 	printf " \033[1m ${green} Encrypt Root? \n \033[0m"
 	printf " \033[1m ${yellow} [Y/N]: \033[0m"
 	read encRyesno
-	echo "encRyesno=$encRyesno" >> config.sh
+	export encRyesno
 	if [ "$encRyesno" == Y -o "$encRyesno" == y ]
 		then
 		printf "\n\n Root will be encrypted! \n"
@@ -256,7 +256,7 @@ doiencrypt() {
 		printf "\033[1m ${green} Encrypt Home? \n \033[0m"
 		printf "\033[1m ${yellow} [Y/N]: \033[0m"
 		read encHyesno
-		echo "encHyesno=$encHyesno" >> config.sh
+		export encHyesno
 		if [ "$encHyesno" == Y -o "$encHyesno" == y ]
 			then
 			printf "\n\n Home will be encrypted! \n"
@@ -272,7 +272,7 @@ doiencrypt() {
 		printf "\033[1m ${green} Encrypt Swap? \n \033[0m"
 		printf "\033[1m ${yellow} [Y/N]: \033[0m"
 		read encSyesno
-		echo "encSyesno=$encSyesno" >> config.sh
+		export encSyesno
 		if [ "$encSyesno" == Y -o "$encSyesno" == y ]
 			then
 			printf "\033[1m ${green} Swap will be encrypted! \n \033[0m"
@@ -372,7 +372,6 @@ postsetup() {
 }
 
 main() {
-	touch config.sh 	## Create file to store bootpart, rewtpart, homepart, swappart for chroot
 	checkdat			## Check if ROOT
 	allvariables		## Gains all user input early
 	ASKme				## ASK NUMBER OF PARTITIONS
