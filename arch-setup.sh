@@ -8,14 +8,98 @@
 #Version
 Version="2.0-BETA"
 
-# FONT
-setfont Lat2-Terminus16
-
 # COLORS
 red=$(tput setaf 1)
 white=$(tput setaf 7)
 green=$(tput setaf 2)
 yellow=$(tput setaf 3)
+
+allvariables() {
+	clear
+	printf "\033[1m \n ${yellow}Choose your hostname: ${white} \033[0m"
+	read hostresponse
+	echo "hostresponse=$hostresponse" >> config.sh
+	
+	clear
+	printf "\033[1m \n ${yellow}     Enter your Time Zone ${white}\n \033[0m"
+	printf "\033[1m \n ${red}CHOICES ARE: ${white}New York ${green}or ${white}Athens \n \033[0m"
+	printf "\033[1m \n ${yellow}Sorry I didnt do all timezones yet\n \n \033[0m"
+	printf "\033[1m \n ${white}ENTER ${green}(1)${red}for Eastern \n \033[0m"
+	printf "\033[1m${white}ENTER ${green}(2)${red}for Central \n \033[0m"
+	printf "\033[1m${white}ENTER ${green}(3)${red}for Pacific\n \033[0m"
+	printf "\033[1m${white}ENTER ${green}(4)${red}for Pacific\n \033[0m"
+	printf "\033[1m \n ${white} Choice: \033[0m"
+	read timezoneresponse
+	echo "timezoneresponse=$timezoneresponse" >> config.sh
+	
+	clear
+	printf "\033[1m \n${green}Would you like to use default locale or choose your own? \n\n \033[0m"
+	printf "\033[1m ${white}Default locale is ${red}en_US.UTF-8 UTF-8 \n\n \033[0m"
+	printf "\033[1m \n${yellow}(Y)${green} for default locale \n${yellow}(N) ${green}for choose your own \n \033[0m"
+	printf "\033[1m \n ${white}Choice: \033[0m"
+	read inputscuzlocale
+	echo "inputscuzlocale=$inputscuzlocale" >> config.sh
+	
+	clear
+	printf "\033[1m \n\n${green}Would you like to install Intel Graphics Drivers? \033[0m"	
+	printf "\033[1m \n ${white}[${green}Y${white}|${red}N${white}] \033[0m"
+	printf "\033[1m \n\n${yellow}Answer: ${white}\033[0m"
+	read intelstuff
+	echo "intelstuff=$intelstuff" >> config.sh
+	if [ "$intelstuff" == Y -o "$intelstuff" == y ]
+		then
+	else
+		printf "\033[1m \n\n ${green}Would you like to install AMD Graphics Drivers? \n\033[0m"
+		printf "\033[1m \n ${white}[${green}Y${white}|${red}N${white}] \033[0m"
+		printf "\033[1m \n ${yellow}Answer: ${white}\033[0m"
+		read amdstuff
+		echo "amdstuff=$amdstuff" >> config.sh
+		if [ "$amdstuff" == Y -o "$amdstuff" == y ]
+			then
+		fi
+	fi
+
+	clear
+	printf "\033[1m\n\n ${green}Would you like to setup pacaur ? \n\033[0m"
+	printf "\033[1m\n\n ${white}It's an ${red}AUR ${white}helper with cower backend \n\n\033[0m"
+	printf "\033[1m\n\n${white}[${green}Y${white}|${red}N${white}]\n\n\033[0m"
+	printf "\033[1m\n\n${red}Answer: ${white}\033[0m"
+	read thatquestion
+	echo "thatquestion=$thatquestion" >> config.sh
+
+	clear
+	printf "\033[1m \n\n ${yellow} Enter username you want to create \n \033[0m"
+	printf "\033[1m \n\n ${red} Do not ${white}enter ${red}Test${white} as a ${red}username.\n \033"
+	printf "\033[1m \n Username:${white} \033[0m"
+	read namebro
+	if [ "$namebro" == Test ]
+		then
+			printf "\033[1m \n ${red}ERROR, DONT ENTER: ${white}Test\n\033[0m"
+			printf "\033[1m \n ${white}TRY AGAIN: \033[0m"
+			read namebro
+	fi
+	printf "\033[1m \n\n ${yellow}Would you like to add this user to sudoers? ( user ALL=(ALL) ALL ) \033[0m"
+	printf "\033[1m \n\n ${white}[${green}Y${white}|${red}N${white}] \033[0m"
+	printf "\033[1m\n\n ${red}Answer: ${white}\033[0m"
+	read anot
+	echo "namebro=$namebro" >> config.sh
+	echo "anot=$anot" >> config.sh
+	
+	clear
+	printf "\033[1m \n ${white} CHOOSE YOUR BOOTLOADER \n \033[0m"
+	printf "\033[1m \n ${white}(1) ${red}For Grub \n \033[0m"
+	printf "\033[1m \n ${white}(2) ${red}For SysLinux \n \033[0m"
+	printf "\033[1m \n ${yellow}CHOICE: ${white}\033[0m"
+	read bootloadchoice
+	if [ "$bootloadchoice" -eq 1 ]
+		then
+	elif [ "$bootloadchoice" -eq 2 ]
+		then
+	else
+		printf "\033[1m ${red}Not Understood ${white}|${red} Setting up grub by default \033[0m"
+	fi
+	echo "bootloadchoice=$bootloadchoice" >> config.sh
+}
 
 mirrors() {
 		sed -i '1iServer = https://mirrors.kernel.org/archlinux/$repo/os/$arch' /etc/pacman.d/mirrorlist
@@ -27,9 +111,9 @@ mirrors() {
 checkdat() {
 	if [ "$(id -u)" -eq 0 ]	
 		then
-		printf "\033[1m\n      ${white}#${green}Archlinux${white}-${green}Swag\n\033[0m"
+		printf "\033[1m\n ${yellow}Maelo ${white}Arch\n\033[0m"
 		sed -i '37iILoveCandy' /etc/pacman.conf
-		sleep 2
+		sleep 3
 	else
 		printf "\033[1m ${red} You Need To Be ROOT \n\033[0m"
 		printf "\033[1m ${yellow} You really need to look at the ReadMe on github \033[0m"
@@ -238,10 +322,6 @@ pkgmntchroot() {
 	   sed -i 's/block filesystems/block keymap encrypt filesystems/g' /mnt/etc/mkinitcpio.conf
 	fi
 	genfstab -p -U /mnt >> /mnt/etc/fstab
-	wget https://raw.githubusercontent.com/maelodic/maelo-arch-install-kde/master/chrootnset.sh
-	chmod +x chrootnset.sh
-	cp chrootnset.sh config.sh /mnt
-	arch-chroot /mnt /bin/bash chrootnset.sh
 }
 
 CALLpart() {
@@ -275,31 +355,38 @@ candy() {
 }
 
 postsetup() {
+	cp config.sh /mnt/root/config.sh
 	cd /mnt/root
-	wget https://raw.githubusercontent.com/maelodic/maelo-arch-install-kde/master/initial.sh
-	chmod +x initial.sh
-	arch-chroot /mnt /bin/bash /root/initial.sh
+	wget https://raw.githubusercontent.com/maelodic/maelo-arch-install-kde/master/chrootsetup.sh
+	chmod +x chrootsetup.sh
+	arch-chroot /mnt /bin/bash /root/chrootsetup.sh
 }
 
 main() {
-	mirrors
+	touch config.sh 	## Create file to store bootpart, rewtpart, homepart, swappart for chroot
 	checkdat			## Check if ROOT
-	touch config.sh 		## Create file to store bootpart, rewtpart, homepart, swappart for chroot
+	allvariables		## Gains all user input early
 	ASKme				## ASK NUMBER OF PARTITIONS
 	doiencrypt			## Do I Encrypt?
 	disk 				## PARTITION WITH CFDISK or FDISK
 	CALLpart 	 		## CALL PARTITIONING IF STATEMENT
 	luksencrypt			## Setup LUKS
-	pkgmntchroot 	 		## Setup packages and mounts, then chroot hook for additional setup w/ chrootnset.shh
+	mirrors				## Sets up optimal mirrors for downloading.
+	pkgmntchroot 	 	## Setup packages and mounts
 	sixfour				## If 64bit uncomment multilib
 	candy				## Choose if you want pacman art when updating
-	postsetup			## POST INSTALL SCRIPT READY FOR AFTER INSTALL
+	postsetup			## Runs additional setup with chroot hook
 	umount -R /mnt	2> /dev/null	## UNMOUNT 
 	clear
-	printf "\033[1m \n ${green} COMPLETE !  \n \033[0m"
-	printf "\033[1m \n ${yellow} SHUT DOWN SYSTEM AND THEN \n \033[0m"
-	printf "\033[1m \n ${yellow} REMOVE LIVE IMAGE \n \033[0m"
-	printf "\033[1m \n ${red} THEN BOOT SYSTEM ! \n \033[0m"
+	printf "\033[1m \n ${green} All done! \n \033[0m"
+	printf "\033[1m \n ${yellow} Reboot now? (Y/n) \n \033[0m"
+	read rebchoice
+	if [ "$rebchoice" == N -o "$rebchoice" == n ]
+		then
+		else
+		reboot now
+	fi 
+
 }
 
 main
