@@ -1,4 +1,4 @@
-# maelo-arch-install-kde
+# Maelo Arch
 
 Personalized Arch install script, which installs KDE and my custom setup for it.
 
