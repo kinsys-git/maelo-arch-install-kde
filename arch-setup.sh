@@ -19,7 +19,8 @@ allvariables() {
 	printf "\033[1m \n ${yellow}Choose your hostname: ${white} \033[0m"
 	read hostresponse
 	echo "hostresponse=$hostresponse" >> config.sh
-	
+	sleep 1
+
 	clear
 	printf "\033[1m \n ${yellow}     Enter your Time Zone ${white}\n \033[0m"
 	printf "\033[1m \n ${red}CHOICES ARE: ${white}New York ${green}or ${white}Athens \n \033[0m"
@@ -31,7 +32,8 @@ allvariables() {
 	printf "\033[1m \n ${white} Choice: \033[0m"
 	read timezoneresponse
 	echo "timezoneresponse=$timezoneresponse" >> config.sh
-	
+	sleep 1
+
 	clear
 	printf "\033[1m \n${green}Would you like to use default locale or choose your own? \n\n \033[0m"
 	printf "\033[1m ${white}Default locale is ${red}en_US.UTF-8 UTF-8 \n\n \033[0m"
@@ -39,7 +41,8 @@ allvariables() {
 	printf "\033[1m \n ${white}Choice: \033[0m"
 	read inputscuzlocale
 	echo "inputscuzlocale=$inputscuzlocale" >> config.sh
-	
+	sleep 1
+
 	clear
 	printf "\033[1m \n\n${green}Would you like to install Intel Graphics Drivers? \033[0m"	
 	printf "\033[1m \n ${white}[${green}Y${white}|${red}N${white}] \033[0m"
@@ -48,6 +51,7 @@ allvariables() {
 	echo "intelstuff=$intelstuff" >> config.sh
 	if [ "$intelstuff" == Y -o "$intelstuff" == y ]
 		then
+		sleep 1
 	else
 		printf "\033[1m \n\n ${green}Would you like to install AMD Graphics Drivers? \n\033[0m"
 		printf "\033[1m \n ${white}[${green}Y${white}|${red}N${white}] \033[0m"
@@ -56,6 +60,7 @@ allvariables() {
 		echo "amdstuff=$amdstuff" >> config.sh
 		if [ "$amdstuff" == Y -o "$amdstuff" == y ]
 			then
+			sleep 1
 		fi
 	fi
 
@@ -66,6 +71,7 @@ allvariables() {
 	printf "\033[1m\n\n${red}Answer: ${white}\033[0m"
 	read thatquestion
 	echo "thatquestion=$thatquestion" >> config.sh
+	sleep 1
 
 	clear
 	printf "\033[1m \n\n ${yellow} Enter username you want to create \n \033[0m"
@@ -84,6 +90,7 @@ allvariables() {
 	read anot
 	echo "namebro=$namebro" >> config.sh
 	echo "anot=$anot" >> config.sh
+	sleep 1
 	
 	clear
 	printf "\033[1m \n ${white} CHOOSE YOUR BOOTLOADER \n \033[0m"
@@ -93,10 +100,13 @@ allvariables() {
 	read bootloadchoice
 	if [ "$bootloadchoice" -eq 1 ]
 		then
+		sleep 1
 	elif [ "$bootloadchoice" -eq 2 ]
 		then
+		sleep 1
 	else
 		printf "\033[1m ${red}Not Understood ${white}|${red} Setting up grub by default \033[0m"
+	sleep 1
 	fi
 	echo "bootloadchoice=$bootloadchoice" >> config.sh
 }
@@ -379,11 +389,10 @@ main() {
 	umount -R /mnt	2> /dev/null	## UNMOUNT 
 	clear
 	printf "\033[1m \n ${green} All done! \n \033[0m"
-	printf "\033[1m \n ${yellow} Reboot now? (Y/n) \n \033[0m"
+	printf "\033[1m \n ${yellow} Reboot now? (y/N) \n \033[0m"
 	read rebchoice
-	if [ "$rebchoice" == N -o "$rebchoice" == n ]
+	if [ "$rebchoice" == Y -o "$rebchoice" == y ]
 		then
-		else
 		reboot now
 	fi 
 

@@ -172,8 +172,6 @@ userandrootpasswd() {
 		passwd
 }
 
-main() {
-
 # Main Function
 main() {
 	hostname			#Set hostname
@@ -191,3 +189,5 @@ main() {
 }
 
 main
+
+#EOF
