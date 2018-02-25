@@ -139,7 +139,7 @@ main() {
 		wminstall
 	fi
 			#Install KDE custom setup if selected
-	if [ "$wmChoice" == 1 ]
+	if [ "$wmChoice" == "1" ]
 		then
 		kdecustom
 	fi

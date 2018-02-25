@@ -47,7 +47,7 @@ variables() {
 		echo " "
 		echo "Home partition: "
 		read homePart
-	elif [ "$mountChoice" =="4" ]
+	elif [ "$mountChoice" == "4" ]
 		then
 		echo "Root partition: "
 		read rootPart
@@ -77,16 +77,16 @@ variables() {
 	echo "Choice?: "
 	read wmChoice
 	export wmChoice
-	if [ "$wmChoice" == 1 ]
+	if [ "$wmChoice" == "1" ]
 	then
 		wm = "plasma-meta kde-applications-meta plasma-nm"
-	elif [ "$wmChoice" == 2 ]
+	elif [ "$wmChoice" == "2" ]
 		wm = "plasma-meta plasma-nm"
-	elif [ "$wmChoice" == 3 ]
+	elif [ "$wmChoice" == "3" ]
 		wm = "gnome"
-	elif [ "$wmChoice" == 4 ]
+	elif [ "$wmChoice" == "4" ]
 		wm = "i3 network-manager-applet blueman"
-	elif [ "$wmChoice" == 5 ]
+	elif [ "$wmChoice" == "5" ]
 		wm = "xfce4"
 	else
 		wm = "none"
@@ -126,7 +126,7 @@ mounting() {
 		mount $rootPart /mnt
 		mount $bootPart /mnt/boot
 		mount $homePart /mnt/home
-	elif [ "$mountChoice" =="4" ]
+	elif [ "$mountChoice" == "4" ]
 		then
 		mount $rootPart /mnt
 		mount $homePart /mnt/home
