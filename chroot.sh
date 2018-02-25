@@ -81,7 +81,7 @@ pacaurinstall() {
 wminstall() {
 	clear
 	echo "Setting up WM"
-	pacman -S $wm sddm --noconfirm --needed
+	pacman -S "$wm" sddm --noconfirm --needed
 }
 
 kdecustom() {
