@@ -23,11 +23,11 @@ variables() {
 	read mountChoice
 	clear
 	echo "Enter your directories for mounting"
-	if [ "$mountChoice" == "1" ]
+	if [ "$mountChoice" = "1" ]
 		then
 		echo "Root partition: "
 		read rootPart
-	elif [ "$mountChoice" == "2" ]
+	elif [ "$mountChoice" = "2" ]
 		then
 		echo "Root partition: "
 		read rootPart
@@ -35,7 +35,7 @@ variables() {
 		echo " "
 		echo "Boot partition: "
 		read bootPart
-	elif [ "$mountChoice" == "3" ]
+	elif [ "$mountChoice" = "3" ]
 		then
 		echo "Root partition: "
 		read rootPart
@@ -47,7 +47,7 @@ variables() {
 		echo " "
 		echo "Home partition: "
 		read homePart
-	elif [ "$mountChoice" == "4" ]
+	elif [ "$mountChoice" = "4" ]
 		then
 		echo "Root partition: "
 		read rootPart
@@ -77,23 +77,23 @@ variables() {
 	echo "Choice?: "
 	read wmChoice
 	export wmChoice
-	if [ "$wmChoice" == "1" ]
+	if [ "$wmChoice" = "1" ]
 	then
 		wm = "plasma-meta kde-applications-meta plasma-nm"
-	elif [ "$wmChoice" == "2" ]
+	elif [ "$wmChoice" = "2" ]
 		wm = "plasma-meta plasma-nm"
-	elif [ "$wmChoice" == "3" ]
+	elif [ "$wmChoice" = "3" ]
 		wm = "gnome"
-	elif [ "$wmChoice" == "4" ]
+	elif [ "$wmChoice" = "4" ]
 		wm = "i3 network-manager-applet blueman"
-	elif [ "$wmChoice" == "5" ]
+	elif [ "$wmChoice" = "5" ]
 		wm = "xfce4"
 	else
 		wm = "none"
 	fi
 	export wm
 	clear
-	echo "Create swapfile? (Y/n: "
+	echo "Create swapfile? (Y/n): "
 	read swapfileChoice
 	export swapfileChoice
 	if [ "$swapfileChoice" == Y -o "$swapfileChoice" == y ]
@@ -114,19 +114,19 @@ variables() {
 mounting() {
 	clear
 	echo "Mounting all directories..."
-	if [ "$mountChoice" == "1" ]
+	if [ "$mountChoice" = "1" ]
 		then
 		mount $rootPart /mnt
-	elif [ "$mountChoice" == "2" ]
+	elif [ "$mountChoice" = "2" ]
 		then
 		mount $rootPart /mnt
 		mount $bootPart /mnt/boot
-	elif [ "$mountChoice" == "3" ]
+	elif [ "$mountChoice" = "3" ]
 		then
 		mount $rootPart /mnt
 		mount $bootPart /mnt/boot
 		mount $homePart /mnt/home
-	elif [ "$mountChoice" == "4" ]
+	elif [ "$mountChoice" = "4" ]
 		then
 		mount $rootPart /mnt
 		mount $homePart /mnt/home
