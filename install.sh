@@ -81,12 +81,16 @@ variables() {
 	then
 		wm = "plasma-meta kde-applications-meta plasma-nm"
 	elif [ "$wmChoice" = "2" ]
+	then
 		wm = "plasma-meta plasma-nm"
 	elif [ "$wmChoice" = "3" ]
+	then
 		wm = "gnome"
 	elif [ "$wmChoice" = "4" ]
+	then
 		wm = "i3 network-manager-applet blueman"
 	elif [ "$wmChoice" = "5" ]
+	then
 		wm = "xfce4"
 	else
 		wm = "none"
@@ -155,9 +159,9 @@ install() {
 
 passtochroot() {
 	cd /mnt/root
-	wget https://raw.githubusercontent.com/maelodic/maelo-arch-install-kde/personal/chrootsetup.sh
-	chmod +x chrootsetup.sh
-	arch-chroot /mnt /bin/bash /root/chrootsetup.sh
+	wget https://raw.githubusercontent.com/maelodic/maelo-arch-install-kde/personal/chroot.sh
+	chmod +x chroot.sh
+	arch-chroot /mnt /bin/bash /root/chroot.sh
 }
 
 end() {
