@@ -65,8 +65,9 @@ adduser() {
 }
 
 pacaurinstall() {
-	clear echo "Installing pacaur"
-	pacman -Syy expac yajl git perl-error --noconfirm --needed
+	clear 
+	echo "Installing pacaur"
+	pacman -S expac yajl git perl-error --noconfirm --needed
 	su "$userName" -c "mkdir /home/$userName/build-dir"
 	su "$userName" -c "cd /home/$userName/build-dir && wget https://aur.archlinux.org/cgit/aur.git/snapshot/cower.tar.gz && tar xzvf cower.tar.gz"
 	su "$userName" -c "cd /home/$userName/build-dir/cower && makepkg -s --skippgpcheck"
@@ -80,13 +81,13 @@ pacaurinstall() {
 wminstall() {
 	clear
 	echo "Setting up WM"
-	pacman -Syy $wm sddm --noconfirm --needed
+	pacman -S $wm sddm --noconfirm --needed
 }
 
 kdecustom() {
 	clear
 	echo "Setting up custom KDE install"
-	pacman -syy svn --noconfirm --needed
+	pacman -s svn --noconfirm --needed
 	cd /home/$userName/
 	svn checkout https://github.com/maelodic/maelo-arch-install-kde/trunk/dotfiles
 	ln -s dotfiles/config /home/$userName/.config
@@ -99,7 +100,7 @@ kdecustom() {
 software() {
 	clear
 	echo "Setting up additional software"
-	pacman -Syy reflector git dialog sddm xorg-server xorg-font-util xorg-xinit xterm xf86-video-vesa xf86-input-synaptics vim xorg-xkill --noconfirm --needed
+	pacman -S networkmanager reflector git dialog sddm xorg-server xorg-font-util xorg-xinit xterm xf86-video-vesa xf86-input-synaptics vim xorg-xkill --noconfirm --needed
        	if [ "$wm" != "none" ]
        		then
 		systemctl enable sddm.service
@@ -144,7 +145,8 @@ main() {
 		kdecustom
 	fi
 	software	#Install additional software
-	rm chroot.sh
+	passwords	#Set user and root passwords	
+	rm /root/chroot.sh
 }
 
 main
