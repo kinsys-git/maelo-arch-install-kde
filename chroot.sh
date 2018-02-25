@@ -100,7 +100,7 @@ kdecustom() {
 software() {
 	clear
 	echo "Setting up additional software"
-	pacman -S networkmanager reflector git dialog sddm xorg-server xorg-font-util xorg-xinit xterm xf86-video-vesa xf86-input-synaptics vim xorg-xkill --noconfirm --needed
+	pacman -S grub efibootmgr os-prober sudo networkmanager reflector git dialog sddm xorg-server xorg-font-util xorg-xinit xterm xf86-video-vesa xf86-input-synaptics vim xorg-xkill --noconfirm --needed
        	if [ "$wm" != "none" ]
        		then
 		systemctl enable sddm.service
@@ -126,7 +126,6 @@ main() {
 		then
 		makeswap
 	fi
-	bootloader	#Install Grub
 	drivers 	#Install drivers if previously specified
 	adduser		#Add user with sudoers access
 			#Install pacaur
@@ -145,6 +144,7 @@ main() {
 		kdecustom
 	fi
 	software	#Install additional software
+	bootloader	#Set up grub
 	passwords	#Set user and root passwords	
 	rm /root/chroot.sh
 }
