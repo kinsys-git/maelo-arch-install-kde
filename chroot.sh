@@ -154,17 +154,17 @@ main() {
 		then
 		pacaurinstall
 	fi
-			#Install WM/DE
-	if [ "$wm" != "none" ]
-		then
-		wminstall
-	fi
 			#Install KDE custom setup if selected
 	if [ "$wmChoice" = "1" ]
 		then
 		kdecustom
 	fi
 	software	#Install additional software
+			#Install WM
+	if [ "$wm" -ne "none ]
+	then
+		wminstall
+	fi
 	bootloader	#Set up grub
 	passwords	#Set user and root passwords	
 	rm /root/chroot.sh
