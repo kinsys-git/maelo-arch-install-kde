@@ -81,7 +81,24 @@ pacaurinstall() {
 wminstall() {
 	clear
 	echo "Setting up WM"
-	pacman -S "$wm" sddm --noconfirm --needed
+	if [ "$wmChoice" = "1" ]
+	then
+		pacman -S plasma-meta kde-applications-meta plasma-nm sddm --noconfirm --needed
+	elif [ "$wmChoice" = "2" ]
+	then
+		pacman -S plasma-meta plasma-nm sddm --noconfirm --needed
+	elif [ "$wmChoice" = "3" ]
+	then
+		pacman -S gnome gdm --noconfirm --needed
+	elif [ "$wmChoice" = "4" ]
+	then
+		pacman -S i3 network-manager-applet blueman sddm --noconfirm --needed
+	elif [ "$wmChoice" = "5" ]
+	then
+		pacman -S xfce4 sddm --noconfirm --needed
+	else
+		wm = "none"
+	fi
 }
 
 kdecustom() {
@@ -101,8 +118,12 @@ software() {
 	clear
 	echo "Setting up additional software"
 	pacman -S grub efibootmgr os-prober sudo networkmanager reflector git dialog sddm xorg-server xorg-font-util xorg-xinit xterm xf86-video-vesa xf86-input-synaptics vim xorg-xkill --noconfirm --needed
-       	if [ "$wm" != "none" ]
+       	if [ "$wmChoice" = "4" ]
        		then
+		systemctl enable gdm.service
+		systemctl enable NetworkManager
+	elif [ "$wm" != "none" ]
+		then
 		systemctl enable sddm.service
 		systemctl enable NetworkManager
 	fi	

@@ -77,25 +77,6 @@ variables() {
 	echo "Choice?: "
 	read wmChoice
 	export wmChoice
-	if [ "$wmChoice" = "1" ]
-	then
-		wm = "plasma-meta kde-applications-meta plasma-nm"
-	elif [ "$wmChoice" = "2" ]
-	then
-		wm = "plasma-meta plasma-nm"
-	elif [ "$wmChoice" = "3" ]
-	then
-		wm = "gnome"
-	elif [ "$wmChoice" = "4" ]
-	then
-		wm = "i3 network-manager-applet blueman"
-	elif [ "$wmChoice" = "5" ]
-	then
-		wm = "xfce4"
-	else
-		wm = "none"
-	fi
-	export wm
 	clear
 	echo "Create swapfile? (Y/n): "
 	read swapfileChoice
