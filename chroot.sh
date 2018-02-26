@@ -117,7 +117,7 @@ kdecustom() {
 software() {
 	clear
 	echo "Setting up additional software"
-	pacman -S grub efibootmgr os-prober sudo networkmanager reflector git dialog sddm xorg-server xorg-font-util xorg-xinit xterm xf86-video-vesa xf86-input-synaptics vim xorg-xkill --noconfirm --needed
+	pacman -S wget rsync wpa_supplicant bc grub efibootmgr os-prober sudo networkmanager reflector git dialog sddm xorg-server xorg-font-util xorg-xinit xterm xf86-video-vesa xf86-input-synaptics vim xorg-xkill --noconfirm --needed
        	if [ "$wmChoice" = "4" ]
        		then
 		systemctl enable gdm.service
@@ -161,7 +161,7 @@ main() {
 	fi
 	software	#Install additional software
 			#Install WM
-	if [ "$wm" -ne "none ]
+	if [ "$wm" -ne "none" ]
 	then
 		wminstall
 	fi
