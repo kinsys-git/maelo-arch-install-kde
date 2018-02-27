@@ -92,7 +92,7 @@ wminstall() {
 		pacman -S gnome gdm --noconfirm --needed
 	elif [ "$wmChoice" = "4" ]
 	then
-		pacman -S i3 network-manager-applet blueman sddm --noconfirm --needed
+		pacman -S i3 dmenu network-manager-applet blueman sddm --noconfirm --needed
 	elif [ "$wmChoice" = "5" ]
 	then
 		pacman -S xfce4 sddm --noconfirm --needed

@@ -105,15 +105,19 @@ mounting() {
 	elif [ "$mountChoice" = "2" ]
 		then
 		mount $rootPart /mnt
+		mkdir /mnt/boot
 		mount $bootPart /mnt/boot
 	elif [ "$mountChoice" = "3" ]
 		then
 		mount $rootPart /mnt
+		mkdir /mnt/boot
+		mkdir /mnt/home
 		mount $bootPart /mnt/boot
 		mount $homePart /mnt/home
 	elif [ "$mountChoice" = "4" ]
 		then
 		mount $rootPart /mnt
+		mkdir /mnt/home
 		mount $homePart /mnt/home
 	fi	
 }
