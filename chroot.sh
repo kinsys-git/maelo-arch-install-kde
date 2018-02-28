@@ -24,7 +24,7 @@ timekeeping() {
 
 makeswap() {
 	clear
-	if [ "$swapChoice" == y -o "$swapChoice" == Y ]
+	if [ "$swapfileChoice" == y -o "$swapfileChoice" == Y ]
 		then
 	  echo "Creating swapfile."
 	  fallocate -l $swapsize $swapfile
@@ -87,7 +87,7 @@ pacaurinstall() {
 
 wminstall() {
 	clear
-	if [ "$wm" -ne "none" ]
+	if [ "$wmChoice" = "1" -o "$wmChoice" = "2" -o "$wmChoice" = "3" -o "$wmChoice" = "4" -o "$wmChoice" = "5" ]
 	then
 		echo "Setting up WM"
   	if [ "$wmChoice" = "1" ]
@@ -133,11 +133,11 @@ software() {
 	clear
 	echo "Setting up additional software"
 	pacman -S wget rsync wpa_supplicant bc grub efibootmgr os-prober sudo networkmanager reflector git dialog sddm xorg-server xorg-font-util xorg-xinit xterm xf86-video-vesa xf86-input-synaptics vim xorg-xkill --noconfirm --needed
-       	if [ "$wmChoice" = "4" ]
+       	if [ "$wmChoice" = "3" ]
        		then
 		systemctl enable gdm.service
 		systemctl enable NetworkManager
-	elif [ "$wm" != "none" ]
+	elif [ "$wmChoice" = "1" -o "$wmChoice" = "2" -o "$wmChoice" = "4" -o "$wmChoice" = "5" ]
 		then
 		systemctl enable sddm.service
 		systemctl enable NetworkManager
