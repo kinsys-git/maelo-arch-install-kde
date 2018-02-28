@@ -4,7 +4,7 @@ initpackages() {
 	clear
 	echo "Initializing packages"
 	pacman -Sy
-}	
+}
 
 hostname() {
 	clear
@@ -24,12 +24,15 @@ timekeeping() {
 
 makeswap() {
 	clear
-	echo "Creating swapfile."
-	fallocate -l $swapsize $swapfile
-	chmod 600 $swapfile
-	mkswap $swapfile
-	echo " " >> /etc/fstab
-	echo "$swapfile none swap defaults 0 0" >> /etc/fstab	
+	if [ "$swapChoice" == y -o "$swapChoice" == Y ]
+		then
+	  echo "Creating swapfile."
+	  fallocate -l $swapsize $swapfile
+	  chmod 600 $swapfile
+	  mkswap $swapfile
+	  echo " " >> /etc/fstab
+	  echo "$swapfile none swap defaults 0 0" >> /etc/fstab
+	fi
 }
 
 bootloader() {
@@ -65,53 +68,65 @@ adduser() {
 }
 
 pacaurinstall() {
-	clear 
-	echo "Installing pacaur"
-	pacman -S expac yajl git perl-error --noconfirm --needed
-	su "$userName" -c "mkdir /home/$userName/build-dir"
-	su "$userName" -c "cd /home/$userName/build-dir && wget https://aur.archlinux.org/cgit/aur.git/snapshot/cower.tar.gz && tar xzvf cower.tar.gz"
-	su "$userName" -c "cd /home/$userName/build-dir/cower && makepkg -s --skippgpcheck"
-	pacman -U /home/"$userName"/build-dir/cower/*.xz --noconfirm
-	su "$userName" -c "cd /home/$userName/build-dir && wget https://aur.archlinux.org/cgit/aur.git/snapshot/pacaur.tar.gz && tar xzvf pacaur.tar.gz"
-	su "$userName" -c "cd /home/$userName/build-dir/pacaur && makepkg -s"
-	pacman -U /home/"$userName"/build-dir/pacaur/*.xz --noconfirm
-	rm -rf /home/$userName/build-dir
+	clear
+	if [ "$pacaurChoice" == y -o "$pacaurChoice" == Y ]
+		then
+			echo "Installing pacaur"
+  	pacman -S expac yajl git perl-error --noconfirm --needed
+	  su "$userName" -c "mkdir /home/$userName/build-dir"
+	  su "$userName" -c "cd /home/$userName/build-dir && wget https://aur.archlinux.org/cgit/aur.git/snapshot/cower.tar.gz && tar xzvf cower.tar.gz"
+	  su "$userName" -c "cd /home/$userName/build-dir/cower && makepkg -s --skippgpcheck"
+	  pacman -U /home/"$userName"/build-dir/cower/*.xz --noconfirm
+	  su "$userName" -c "cd /home/$userName/build-dir && wget https://aur.archlinux.org/cgit/aur.git/snapshot/pacaur.tar.gz && tar xzvf pacaur.tar.gz"
+  	su "$userName" -c "cd /home/$userName/build-dir/pacaur && makepkg -s"
+  	pacman -U /home/"$userName"/build-dir/pacaur/*.xz --noconfirm
+  	rm -rf /home/$userName/build-dir
+	fi
+
 }
 
 wminstall() {
 	clear
-	echo "Setting up WM"
-	if [ "$wmChoice" = "1" ]
+	if [ "$wm" -ne "none" ]
 	then
-		pacman -S plasma-meta kde-applications-meta plasma-nm sddm --noconfirm --needed
-	elif [ "$wmChoice" = "2" ]
-	then
-		pacman -S plasma-meta plasma-nm sddm --noconfirm --needed
-	elif [ "$wmChoice" = "3" ]
-	then
-		pacman -S gnome gdm --noconfirm --needed
-	elif [ "$wmChoice" = "4" ]
-	then
-		pacman -S i3 dmenu network-manager-applet blueman sddm --noconfirm --needed
-	elif [ "$wmChoice" = "5" ]
-	then
-		pacman -S xfce4 sddm --noconfirm --needed
-	else
-		wm = "none"
+		echo "Setting up WM"
+  	if [ "$wmChoice" = "1" ]
+  	then
+  		pacman -S plasma-meta kde-applications-meta plasma-nm sddm --noconfirm --needed
+  	elif [ "$wmChoice" = "2" ]
+  	then
+  		pacman -S plasma-meta plasma-nm sddm --noconfirm --needed
+  	elif [ "$wmChoice" = "3" ]
+  	then
+  		pacman -S gnome gdm --noconfirm --needed
+  	elif [ "$wmChoice" = "4" ]
+  	then
+  		pacman -S i3 dmenu network-manager-applet blueman sddm --noconfirm --needed
+  	elif [ "$wmChoice" = "5" ]
+  	then
+  		pacman -S xfce4 sddm --noconfirm --needed
+  	else
+  		wm = "none"
+	  fi
 	fi
+
 }
 
 kdecustom() {
 	clear
-	echo "Setting up custom KDE install"
-	pacman -s svn --noconfirm --needed
-	cd /home/$userName/
-	svn checkout https://github.com/maelodic/maelo-arch-install-kde/trunk/dotfiles
-	ln -s dotfiles/config /home/$userName/.config
-	ln -s dotfiles/local /home/$userName/.local
-	ln -s dotfiles/kde4 /home/$userName/.kde4
-	find . -exec chown $userName.$userName {} \;
-	rm -rf 
+	if [ "$wmChoice" = "1" ]
+		then
+		echo "Setting up custom KDE install"
+  	pacman -S svn --noconfirm --needed
+	  cd /home/$userName/
+  	svn checkout https://github.com/maelodic/maelo-arch-install-kde/trunk/dotfiles
+  	ln -s dotfiles/config /home/$userName/.config
+	  ln -s dotfiles/local /home/$userName/.local
+  	ln -s dotfiles/kde4 /home/$userName/.kde4
+  	find . -exec chown $userName.$userName {} \;
+  	rm -rf
+	fi
+
 }
 
 software() {
@@ -126,7 +141,7 @@ software() {
 		then
 		systemctl enable sddm.service
 		systemctl enable NetworkManager
-	fi	
+	fi
 }
 
 passwords() {
@@ -142,31 +157,15 @@ main() {
 	initpackages	#Update reps
 	hostname	#Setup hostname
 	timekeeping	#Set up timzone and generate the locale
-			#Install swapfile if selected
-	if [ "$swapChoice" == y -o "$swapChoice" == Y ]
-		then
-		makeswap
-	fi
+  makeswap    #Install swapfile if selected
 	drivers 	#Install drivers if previously specified
 	adduser		#Add user with sudoers access
-			#Install pacaur
-	if [ "$pacaurChoice" == y -o "$pacaurChoice" == Y ]
-		then
-		pacaurinstall
-	fi
-			#Install KDE custom setup if selected
-	if [ "$wmChoice" = "1" ]
-		then
-		kdecustom
-	fi
+	pacaurinstall		#Install pacaur
+	kdecustom   #Install KDE custom setup if selected
 	software	#Install additional software
-			#Install WM
-	if [ "$wm" -ne "none" ]
-	then
-		wminstall
-	fi
+	wminstall   #Install WM
 	bootloader	#Set up grub
-	passwords	#Set user and root passwords	
+	passwords	#Set user and root passwords
 	rm /root/chroot.sh
 }
 

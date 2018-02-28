@@ -139,7 +139,7 @@ install() {
 		then
 		sed -i'' '93,94 s/^#//' /mnt/etc/pacman.conf
 	fi
-	sed -i '37iLoveCandy' /mnt/etc/pacman.conf
+	sed -i '37iILoveCandy' /mnt/etc/pacman.conf
 }
 
 passtochroot() {
